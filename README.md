@@ -2,7 +2,7 @@
 
 ## Contexte du projet
 
-Projet de 2 étudiants réalisé dans le cadre du cours « Programmation objet avancée » - 8INF957 - UQAC Automne 2017
+Projet de 2 étudiants réalisé dans le cadre du cours « Programmation objet avancée » - 8INF957 - UQAC Hiver 2018
 
 Membres du groupe :
 
