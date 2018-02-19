@@ -11,5 +11,5 @@ Membres du groupe :
 
 ## Qu'est-ce « HotelManager » ?
 
-HotelManager est une application Java permettant de gérer l'activité d'un hôtel de manière centralisée.
+HotelManager est une application Java permettant une gestion centralisée de l'activité d'un hôtel.
 
