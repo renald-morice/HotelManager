@@ -1,4 +1,4 @@
-# HotelManager
+# Hotel Manager
 
 ## Contexte du projet
 
