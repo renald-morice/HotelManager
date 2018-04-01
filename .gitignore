@@ -1,3 +1,4 @@
 .idea/*
 HotelManager.iml
 src/hibernate.cfg.xml
+out/
