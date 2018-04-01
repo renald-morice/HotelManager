@@ -27,7 +27,7 @@ public class LoginFormController {
         Employee employee = employeeManager.login(usernameTextField.getText(), MD5Hashing.hash(passwordField.getText()));
         if(employee == null) badIDsText.setVisible(true);
         else{
-            new Home().start(new Stage());
+            new HomeApplication().start(new Stage());
             stage.close();
         }
     }
