@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="View.LoginForm"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginForm">
+   <children>
+      <Label layoutX="165.0" layoutY="121.0" text="Identifiant" />
+      <TextField fx:id="usernameTextField" layoutX="165.0" layoutY="148.0" />
+      <Label layoutX="165.0" layoutY="199.0" text="Mot de passe" />
+      <PasswordField fx:id="passwordField" layoutX="165.0" layoutY="225.0" />
+      <Button layoutX="208.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" text="Connexion" />
+      <Label fx:id="badIDsText" layoutX="179.0" layoutY="339.0" text="Identifiants incorrects" textFill="RED" visible="false" />
+   </children>
 </AnchorPane>
