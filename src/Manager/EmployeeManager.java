@@ -2,6 +2,7 @@ package Manager;
 
 import Model.Employee;
 import Util.Hibernate;
+import Util.MD5Hashing;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -44,7 +45,7 @@ public class EmployeeManager {
 
         try {
             transaction = session.beginTransaction();
-            Employee employee = new Employee(login, password, firstName, lastName, salary);
+            Employee employee = new Employee(login, MD5Hashing.hash(password), firstName, lastName, salary);
             employeeID = (Integer) session.save(employee);
             transaction.commit();
         } catch (HibernateException e) {

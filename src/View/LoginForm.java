@@ -7,12 +7,12 @@ import Util.MD5Hashing;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Side;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -24,7 +24,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class LoginForm extends Application {
 
-    Stage window;
+    private Stage window;
 
     public static void main(String[] args){
         launch(args);
@@ -37,6 +37,8 @@ public class LoginForm extends Application {
         Hibernate.init();
 
         EmployeeManager employeeManager = new EmployeeManager();
+
+        //employeeManager.add("lbotho","password","Loïc","Bothorel",2000);
 
         window = primaryStage;
         window.setTitle("Hotel Manager");
@@ -78,11 +80,8 @@ public class LoginForm extends Application {
             Employee employee = employeeManager.login(userNameTextField.getText(), MD5Hashing.hash(passwordField.getText()));
             if(employee == null) badIDsText.setVisible(true);
             else{
-                //TODO : Faire la fenêtre dans une classe différente (plus propre)
-                GridPane grid2 = new GridPane();
-                Scene scene2 = new Scene(grid2, 500,500);
-                window.setScene(scene2);
-                window.show();
+                new Home().start(new Stage());
+                window.close();
             }
         });
 
