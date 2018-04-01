@@ -37,14 +37,14 @@ public class EmployeeManager {
         return employee;
     }
 
-    public int add(String login, String password, String firstName, String lasteName, int salary){
+    public int add(String login, String password, String firstName, String lastName, int salary){
         Session session = Hibernate.sessionFactory.openSession();
         Transaction transaction = null;
         Integer employeeID = null;
 
         try {
             transaction = session.beginTransaction();
-            Employee employee = new Employee(login, password, firstName, lasteName, salary);
+            Employee employee = new Employee(login, password, firstName, lastName, salary);
             employeeID = (Integer) session.save(employee);
             transaction.commit();
         } catch (HibernateException e) {

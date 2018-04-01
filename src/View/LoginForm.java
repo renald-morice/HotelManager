@@ -33,9 +33,10 @@ public class LoginForm extends Application {
     @Override
     public void start(Stage primaryStage) {
 
+        //Hibernate initialization
+        Hibernate.init();
+
         EmployeeManager employeeManager = new EmployeeManager();
-        //Force Hibernate initialization
-        Hibernate.getInstance();
 
         window = primaryStage;
         window.setTitle("Hotel Manager");
