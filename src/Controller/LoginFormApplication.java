@@ -34,8 +34,6 @@ public class LoginFormApplication extends Application {
         window.setResizable(false);
         window.setTitle("Hotel Manager");
         window.setScene(new Scene(root));
-        avr. 01, 2018 7:38:58 PM org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl buildCreator
-        INFO: HHH10001001: Connection properties: {user=root, password=****}
         window.show();
     }
 }
