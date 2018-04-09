@@ -1,5 +1,6 @@
 package Controller;
 
+import Util.Constants;
 import Util.Hibernate;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -20,9 +21,9 @@ public class LoginFormApplication extends Application {
         //Hibernate initialization
         Hibernate.init();
 
-        Parent root = FXMLLoader.load(getClass().getResource("../View/LoginForm.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(Constants.LOGIN_FXML));
         window = primaryStage;
-        window.setTitle("Hotel Manager");
+        window.setTitle(Constants.WINDOW_TITLE);
         window.setScene(new Scene(root));
         window.show();
     }

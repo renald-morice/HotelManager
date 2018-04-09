@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -7,11 +9,16 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginFormController">
    <children>
-      <Label layoutX="165.0" layoutY="121.0" text="Identifiant" />
-      <TextField fx:id="usernameTextField" layoutX="165.0" layoutY="148.0" />
-      <Label layoutX="165.0" layoutY="199.0" text="Mot de passe" />
-      <PasswordField fx:id="passwordField" layoutX="165.0" layoutY="225.0" />
-      <Button layoutX="208.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" text="Connexion" />
+      <Label layoutX="173.0" layoutY="182.0" text="Identifiant" />
+      <Label layoutX="173.0" layoutY="256.0" text="Mot de passe" />
       <Label fx:id="badIDsText" layoutX="179.0" layoutY="339.0" text="Identifiants incorrects" textFill="RED" visible="false" />
+      <JFXTextField fx:id="usernameTextField" layoutX="173.0" layoutY="197.0" />
+      <JFXPasswordField fx:id="passwordField" layoutX="173.0" layoutY="271.0" />
+      <JFXButton layoutX="206.0" layoutY="327.0" onAction="#handleSubmitButtonAction" text="Connexion" />
+      <Label layoutX="137.0" layoutY="81.0" text="Hotel Manager">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -3,19 +3,19 @@ package Controller;
 import Manager.EmployeeManager;
 import Model.Employee;
 import Util.MD5Hashing;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class LoginFormController {
     @FXML
-    private TextField usernameTextField;
+    private JFXTextField usernameTextField;
     @FXML
-    private PasswordField passwordField;
+    private JFXPasswordField passwordField;
     @FXML
     private Label badIDsText;
 
@@ -27,7 +27,11 @@ public class LoginFormController {
         Employee employee = employeeManager.login(usernameTextField.getText(), MD5Hashing.hash(passwordField.getText()));
         if(employee == null) badIDsText.setVisible(true);
         else{
-            new Home().start(new Stage());
+            try {
+                new Home().start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             stage.close();
         }
     }
