@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
@@ -9,16 +12,21 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginFormController">
    <children>
-      <Label layoutX="173.0" layoutY="182.0" text="Identifiant" />
-      <Label layoutX="173.0" layoutY="256.0" text="Mot de passe" />
-      <Label fx:id="badIDsText" layoutX="179.0" layoutY="339.0" text="Identifiants incorrects" textFill="RED" visible="false" />
-      <JFXTextField fx:id="usernameTextField" layoutX="173.0" layoutY="197.0" />
-      <JFXPasswordField fx:id="passwordField" layoutX="173.0" layoutY="271.0" />
-      <JFXButton layoutX="206.0" layoutY="327.0" onAction="#handleSubmitButtonAction" text="Connexion" />
-      <Label layoutX="137.0" layoutY="81.0" text="Hotel Manager">
+      <ImageView fitHeight="103.0" fitWidth="143.0" layoutX="201.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Resources/hotel.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="139.0" layoutY="137.0" text="Hotel Manager" textFill="#30415d">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
+      <Label layoutX="176.0" layoutY="220.0" text="Identifiant" textFill="#30415d" />
+      <JFXTextField fx:id="usernameTextField" focusColor="#30415d" layoutX="176.0" layoutY="235.0" unFocusColor="#30415d" />
+      <Label layoutX="176.0" layoutY="294.0" text="Mot de passe" textFill="#30415d" />
+      <JFXPasswordField fx:id="passwordField" focusColor="#30415d" layoutX="176.0" layoutY="309.0" unFocusColor="#30415d" />
+      <JFXButton layoutX="206.0" layoutY="352.0" onAction="#handleSubmitButtonAction" ripplerFill="WHITE" text="Connexion" textFill="#30415d" />
+      <Label fx:id="badIDsText" layoutX="182.0" layoutY="377.0" text="Identifiants incorrects" textFill="#cf6766" visible="false" />
    </children>
 </AnchorPane>
