@@ -1,5 +1,6 @@
 package Controller;
 
+import Util.Constants;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,18 +15,14 @@ public class HomeApplication extends Application {
     private Stage window;
 
     @Override
-    public void start(Stage primaryStage) {
-
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource(Constants.HOME_FXML));
         window = primaryStage;
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("../View/Home.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        window.setTitle("Hotel Manager");
+        window.setTitle(Constants.WINDOW_TITLE);
         window.setScene(new Scene(root));
+        window.setMaximized(true);
+        window.setMinWidth(Constants.WINDOW_MIN_WIDTH);
+        window.setMinHeight(Constants.WINDOW_MIN_HEIGHT);
         window.show();
     }
 }

@@ -28,7 +28,7 @@ public class LoginFormController {
         if(employee == null) badIDsText.setVisible(true);
         else{
             try {
-                new Home().start(new Stage());
+                new HomeApplication().start(new Stage());
             } catch (Exception e) {
                 e.printStackTrace();
             }
