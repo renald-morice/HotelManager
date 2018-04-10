@@ -2,6 +2,7 @@ package Controller;
 
 import Util.Constants;
 import Util.Hibernate;
+import com.jfoenix.controls.JFXDecorator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -23,8 +24,9 @@ public class LoginFormApplication extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource(Constants.LOGIN_FXML));
         window = primaryStage;
-        window.setTitle(Constants.WINDOW_TITLE);
-        window.setScene(new Scene(root));
+        JFXDecorator decorator = new JFXDecorator(window,root);
+        decorator.setText(Constants.WINDOW_TITLE);
+        window.setScene(new Scene(decorator));
         window.show();
     }
 }

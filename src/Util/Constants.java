@@ -13,4 +13,8 @@ public class Constants {
      */
     public static final String LOGIN_FXML = "../View/LoginForm.fxml";
     public static final String HOME_FXML = "../View/Home.fxml";
+    public static final String SIDEPANELINTERFACES_PATH = "../View/SidePanelInterfaces/";
+    public static final String UI1_FXML = "UI1.fxml";
+    public static final String UI2_FXML = "UI2.fxml";
+    public static final String UI3_FXML = "UI3.fxml";
 }
