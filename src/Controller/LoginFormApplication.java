@@ -31,10 +31,9 @@ public class LoginFormApplication extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource(Constants.LOGIN_FXML));
         window = primaryStage;
-        JFXDecorator decorator = new JFXDecorator(window,root);
-        decorator.setCustomMaximize(false);
+        JFXDecorator decorator = new JFXDecorator(window,root,false,false,false);
+        decorator.setOnCloseButtonAction(() -> System.exit(0));
         decorator.setText(Constants.WINDOW_TITLE);
-        decorator.setMaximized(false);
         window.setResizable(false);
         window.setScene(new Scene(decorator));
         window.show();

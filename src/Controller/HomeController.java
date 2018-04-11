@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static javafx.application.Platform.exit;
+
 public class HomeController implements Initializable {
 
     private Employee employee;
@@ -53,6 +55,7 @@ public class HomeController implements Initializable {
     protected void handleExit(ActionEvent event) {
         Stage stage = (Stage) borderPane.getScene().getWindow();
         stage.close();
+        exit();
     }
 
     private void loadUI(String ui) {

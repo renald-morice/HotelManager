@@ -10,10 +10,12 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -52,15 +54,14 @@ public class LoginFormController {
 
             Parent parent = loader.getRoot();
             Stage newStage = new Stage();
-            newStage.setScene(new Scene(parent));
 
-            JFXDecorator decorator = new JFXDecorator(newStage,parent);
-            decorator.setCustomMaximize(true);
-            decorator.setMaximized(true);
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+
+            JFXDecorator decorator = new JFXDecorator(newStage,parent,false,false,false);
             decorator.setText(Constants.WINDOW_TITLE);
-            newStage.setScene(new Scene(decorator));
-            newStage.setMinWidth(Constants.WINDOW_MIN_WIDTH);
-            newStage.setMinHeight(Constants.WINDOW_MIN_HEIGHT);
+            decorator.setOnCloseButtonAction(() -> System.exit(0));
+            newStage.setResizable(false);
+            newStage.setScene(new Scene(decorator,primaryScreenBounds.getWidth(),primaryScreenBounds.getHeight()));
 
             currentStage.close();
             newStage.show();
