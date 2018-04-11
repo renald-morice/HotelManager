@@ -55,7 +55,7 @@ public class HomeController implements Initializable {
     protected void handleExit(ActionEvent event) {
         Stage stage = (Stage) borderPane.getScene().getWindow();
         stage.close();
-        exit();
+        System.exit(0);
     }
 
     private void loadUI(String ui) {
