@@ -8,8 +8,8 @@ public class ReservationManager extends Manager{
 
     public ReservationManager(){ }
 
-    public List<Reservation> list(){
-        return (List<Reservation>)(List<?>) super.list("Reservation");
+    public List<Reservation> listAll(){
+        return (List<Reservation>)(List<?>) super.sqlList("FROM Reservation", null);
     }
 
 }

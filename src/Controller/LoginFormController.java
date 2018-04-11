@@ -21,12 +21,15 @@ public class LoginFormController {
 
     @FXML
     protected void handleSubmitButtonAction(ActionEvent event) {
+
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
+
         EmployeeManager employeeManager = new EmployeeManager();
-        Employee employee = employeeManager.login(usernameTextField.getText(), MD5Hashing.hash(passwordField.getText()));
-        if(employee == null) badIDsText.setVisible(true);
-        else{
+        Employee employee = employeeManager.exists(usernameTextField.getText());
+
+        if(employee == null || !employee.getPassword().equals(MD5Hashing.hash(passwordField.getText()))) badIDsText.setVisible(true);
+        else {
             try {
                 new HomeApplication().start(new Stage());
             } catch (Exception e) {

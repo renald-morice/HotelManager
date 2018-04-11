@@ -75,10 +75,6 @@ public class LoginFormApplication extends Application {
 //        Reservation reservation = new Reservation(new Date(), new Date(), new Date(), 5, employee, client, rooms);
 //
 //        reservationManager.add(reservation);
-//
-//        rooms.remove(room2);
-//        reservation.setRooms(rooms);
-//        reservationManager.update(reservation);
 
     }
 }

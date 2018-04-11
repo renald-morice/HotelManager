@@ -1,9 +1,11 @@
 package Manager;
 
 import Util.Hibernate;
+import javafx.util.Pair;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -43,14 +45,20 @@ public abstract class Manager {
         }
     }
 
-    protected List<Object> list(String table){
+    protected List<Object> sqlList(String sql, List<Pair<String, Object>> params){
+
         Session session = Hibernate.sessionFactory.openSession();
         Transaction transaction = null;
         List<Object> objects = null;
 
+        Query query = session.createQuery(sql);
+        if(params != null){
+            for(Pair<String, Object> param : params) query.setParameter(param.getKey(), param.getValue());
+        }
+
         try {
             transaction = session.beginTransaction();
-            objects = (List<Object>) session.createQuery("from " + table).list();
+            objects = query.list();
             transaction.commit();
 
         } catch (HibernateException e) {
