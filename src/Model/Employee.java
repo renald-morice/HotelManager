@@ -1,5 +1,9 @@
 package Model;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Employee")
-public class Employee{
+public class Employee extends RecursiveTreeObject<Employee> {
 
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
@@ -125,5 +129,4 @@ public class Employee{
         this.reservations.add(reservation);
         reservation.setEmployee(this);
     }
-
 }

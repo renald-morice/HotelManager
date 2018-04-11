@@ -1,14 +1,20 @@
 package Controller;
 
-import Model.Employee;
+//import Manager.*;
+//import Model.*;
 import Util.Constants;
 import Util.Hibernate;
+//import Util.MD5Hashing;
 import com.jfoenix.controls.JFXDecorator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+//import java.util.Date;
+//import java.util.HashSet;
+//import java.util.Set;
 
 public class LoginFormApplication extends Application {
 
@@ -44,10 +50,10 @@ public class LoginFormApplication extends Application {
 //        Role ceoRole = new Role("CEO", 10);
 //
 //        Employee employee = new Employee(
-//                "Momo",
+//                "lbotho",
 //                MD5Hashing.hash("test"),
-//                "Rénald",
-//                "Morice",
+//                "Loïc",
+//                "Bothorel",
 //                5000.1,
 //                ceoRole
 //        );

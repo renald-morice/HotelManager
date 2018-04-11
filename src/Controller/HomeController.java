@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Employee;
 import Util.Constants;
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,9 +23,7 @@ public class HomeController implements Initializable {
     private BorderPane borderPane;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
+    public void initialize(URL location, ResourceBundle resources) { }
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
@@ -40,7 +39,15 @@ public class HomeController implements Initializable {
         loadUI(Constants.RESERVATIONS_FXML);
     }
     @FXML
-    protected void handleEmployees(ActionEvent event) { loadUI(Constants.EMPLOYEES_FXML); }
+    protected void handleEmployees(ActionEvent event) {
+        String ui = "";
+        if (employee.getRole().getAccessLevel() > 7) {
+            ui = Constants.EMPLOYEES_FXML;
+        } else {
+            ui = Constants.NO_ACCESS_FXML;
+        }
+        loadUI(ui);
+    }
 
     @FXML
     protected void handleExit(ActionEvent event) {

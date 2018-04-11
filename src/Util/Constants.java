@@ -13,10 +13,11 @@ public class Constants {
      */
     public static final String LOGIN_FXML = "../View/LoginForm.fxml";
     public static final String HOME_FXML = "../View/Home.fxml";
-    public static final String SIDEPANELINTERFACES_PATH = "../View/SidePanelInterfaces/";
+    public static final String SIDEPANELINTERFACES_PATH = "../View/FeaturesInterfaces/";
     public static final String ROOMS_FXML = "Rooms.fxml";
     public static final String RESERVATIONS_FXML = "Reservation.fxml";
     public static final String EMPLOYEES_FXML = "Employees.fxml";
+    public static final String NO_ACCESS_FXML = "NoAccess.fxml";
 
     /**
      * HIBERNATE
