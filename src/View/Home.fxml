@@ -10,21 +10,21 @@
    <left>
       <VBox prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #30415d;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton onAction="#handleUI1" prefHeight="25.0" prefWidth="301.0" text="Chambres" textFill="WHITE">
+            <JFXButton onAction="#handleRooms" prefHeight="25.0" prefWidth="301.0" text="Chambres" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
                <padding>
                   <Insets bottom="15.0" top="15.0" />
                </padding></JFXButton>
-            <JFXButton onAction="#handleUI2" prefHeight="25.0" prefWidth="393.0" text="Reservations" textFill="WHITE">
+            <JFXButton onAction="#handleReservations" prefHeight="25.0" prefWidth="393.0" text="Reservations" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
                <padding>
                   <Insets bottom="15.0" top="15.0" />
                </padding></JFXButton>
-            <JFXButton onAction="#handleUI3" prefHeight="25.0" prefWidth="413.0" text="Employes" textFill="WHITE">
+            <JFXButton onAction="#handleEmployees" prefHeight="25.0" prefWidth="413.0" text="Employes" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
