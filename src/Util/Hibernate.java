@@ -24,7 +24,7 @@ public class Hibernate {
                         .addAnnotatedClass(Room.class)
                         .buildSessionFactory();
             } catch (Throwable ex) {
-                System.err.println("Failed to create sessionFactory object." + ex);
+                System.err.println(Constants.HIBERNATE_SESSIONFACTORY_FAIL + ex);
                 throw new ExceptionInInitializerError(ex);
             }
         }

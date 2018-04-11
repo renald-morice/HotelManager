@@ -17,4 +17,10 @@ public class Constants {
     public static final String UI1_FXML = "UI1.fxml";
     public static final String UI2_FXML = "UI2.fxml";
     public static final String UI3_FXML = "UI3.fxml";
+
+    /**
+     * HIBERNATE
+     */
+    public static final String HIBERNATE_SESSIONFACTORY_FAIL = "Failed to create sessionFactory object.";
+
 }
