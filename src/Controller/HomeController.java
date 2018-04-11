@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Employee;
 import Util.Constants;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,12 +15,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
+
+    private Employee employee;
+
     @FXML
     private BorderPane borderPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @FXML
@@ -32,9 +40,8 @@ public class HomeController implements Initializable {
         loadUI(Constants.UI2_FXML);
     }
     @FXML
-    protected void handleUI3(ActionEvent event) {
-        loadUI(Constants.UI3_FXML);
-    }
+    protected void handleUI3(ActionEvent event) { loadUI(Constants.UI3_FXML); }
+
     @FXML
     protected void handleExit(ActionEvent event) {
         Stage stage = (Stage) borderPane.getScene().getWindow();

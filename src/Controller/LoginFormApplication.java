@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Employee;
 import Util.Constants;
 import Util.Hibernate;
 import com.jfoenix.controls.JFXDecorator;
