@@ -42,8 +42,8 @@ public class HomeController implements Initializable {
     }
     @FXML
     protected void handleEmployees(ActionEvent event) {
-        String ui = "";
-        if (employee.getRole().getAccessLevel() > 7) {
+        String ui;
+        if (employee.getRole().getAccessLevel() >= Constants.ACCESS_LEVEL_MIN) {
             ui = Constants.EMPLOYEES_FXML;
         } else {
             ui = Constants.NO_ACCESS_FXML;

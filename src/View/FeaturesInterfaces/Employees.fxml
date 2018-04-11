@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menu.EmployeesController">
-   <center>
-      <JFXTreeTableView fx:id="employeesTreeTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" BorderPane.alignment="CENTER" />
-   </center>
-   <top>
-      <JFXTextField fx:id="searchInput" promptText="Recherche" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="20.0" />
-         </BorderPane.margin>
-      </JFXTextField>
-   </top>
-</BorderPane>
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menu.EmployeesController">
+   <children>
+      <JFXTextField fx:id="searchInput" focusColor="#30415d" layoutX="358.0" layoutY="14.0" promptText="Recherche" />
+      <JFXButton layoutX="436.0" layoutY="489.0" onAction="#addNewEmployee" text="Ajouter un nouvel employe" textAlignment="CENTER" />
+      <JFXTreeTableView fx:id="employeesTreeTable" layoutX="312.0" layoutY="71.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+   </children>
+</AnchorPane>
