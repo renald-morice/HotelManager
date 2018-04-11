@@ -27,6 +27,8 @@ public class LoginFormApplication extends Application {
         window = primaryStage;
         JFXDecorator decorator = new JFXDecorator(window,root);
         decorator.setText(Constants.WINDOW_TITLE);
+        decorator.setMaximized(false);
+        window.setResizable(false);
         window.setScene(new Scene(decorator));
         window.show();
 
