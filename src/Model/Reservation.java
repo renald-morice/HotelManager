@@ -18,8 +18,6 @@ public class Reservation {
     private Date startDate;
     @Column(name = "end_date", nullable = false)
     private Date endDate;
-    @Column(name = "nb_guest", nullable = false)
-    private int nbGuest;
     @ManyToOne
     @JoinColumn(name = "fk_employee")
     private Employee employee;
@@ -34,11 +32,10 @@ public class Reservation {
 
     public Reservation() {}
 
-    public Reservation(Date reservationDate, Date startDate, Date endDate, int nbGuest, Employee employee, Client client, Set<Room> rooms) {
+    public Reservation(Date reservationDate, Date startDate, Date endDate, Employee employee, Client client, Set<Room> rooms) {
         this.reservationDate = reservationDate;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.nbGuest = nbGuest;
         this.employee = employee;
         this.client = client;
         this.rooms = rooms;
@@ -59,10 +56,6 @@ public class Reservation {
     public Date getEndDate() { return endDate; }
 
     public void setEndDate(Date endDate) { this.endDate = endDate; }
-
-    public int getNbGuest() { return nbGuest; }
-
-    public void setNbGuest(int nbGuest) { this.nbGuest = nbGuest; }
 
     public Employee getEmployee() { return employee; }
 

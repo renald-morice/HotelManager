@@ -11,7 +11,7 @@ public class RoomManager extends Manager{
 
     public RoomManager(){ }
 
-    public List<Room> list(){
+    public List<Room> listAll(){
         return (List<Room>)(List<?>) super.sqlList("FROM Room", null);
     }
 

@@ -11,7 +11,7 @@ public class RoleManager extends Manager{
 
     public RoleManager(){ }
 
-    public List<Role> list(){
+    public List<Role> listAll(){
         return (List<Role>)(List<?>) super.sqlList("FROM Role", null);
     }
 
