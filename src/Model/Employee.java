@@ -1,6 +1,9 @@
 package Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Table(name = "Employee")
@@ -9,25 +12,57 @@ public class Employee{
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name = "username")
+    @Column(name = "username", nullable = false)
     private String username;
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
-    @Column(name = "salary")
-    private float salary;
+    @Column(name = "salary", nullable = false)
+    private double salary;
+    @ManyToOne
+    @JoinColumn(name = "fk_role")
+    private Role role;
+    @OneToMany(mappedBy = "employee")
+    private List<Reservation> reservations;
 
     public Employee() {}
 
-    public Employee(String username, String password, String fname, String lname, float salary ) {
+    public Employee(
+            String username,
+            String password,
+            String firstName,
+            String lastName,
+            double salary,
+            Role role
+    ){
         this.username = username;
-        this.password = password;
-        this.firstName = fname;
-        this.lastName = lname;
+        this.password =  password;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.salary = salary;
+        this.role = role;
+        this.reservations = new ArrayList<>();
+    }
+
+    public Employee(
+            String username,
+            String password,
+            String firstName,
+            String lastName,
+            double salary,
+            Role role,
+            List<Reservation> reservations
+    ){
+        this.username = username;
+        this.password =  password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+        this.role = role;
+        this.reservations = reservations;
     }
 
     public String getUsername() {
@@ -70,11 +105,25 @@ public class Employee{
         this.lastName = last_name;
     }
 
-    public float getSalary() {
+    public double getSalary() {
         return salary;
     }
 
     public void setSalary( float salary ) {
         this.salary = salary;
     }
+
+    public Role getRole() { return role; }
+
+    public void setRole(Role role) { this.role = role; }
+
+    public List<Reservation> getReservations() { return reservations; }
+
+    public void setReservations(List<Reservation> reservations) { this.reservations = reservations; }
+
+    public void addReservation(Reservation reservation) {
+        this.reservations.add(reservation);
+        reservation.setEmployee(this);
+    }
+
 }

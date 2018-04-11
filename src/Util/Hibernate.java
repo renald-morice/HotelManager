@@ -1,6 +1,6 @@
 package Util;
 
-import Model.Employee;
+import Model.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -18,6 +18,10 @@ public class Hibernate {
             try {
                 sessionFactory = new Configuration().configure()
                         .addAnnotatedClass(Employee.class)
+                        .addAnnotatedClass(Client.class)
+                        .addAnnotatedClass(Reservation.class)
+                        .addAnnotatedClass(Role.class)
+                        .addAnnotatedClass(Room.class)
                         .buildSessionFactory();
             } catch (Throwable ex) {
                 System.err.println("Failed to create sessionFactory object." + ex);
