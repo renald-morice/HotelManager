@@ -32,15 +32,15 @@ public class HomeController implements Initializable {
 
     @FXML
     protected void handleUI1(ActionEvent event) {
-        loadUI(Constants.UI1_FXML);
+        loadUI(Constants.ROOMS_FXML);
     }
 
     @FXML
     protected void handleUI2(ActionEvent event) {
-        loadUI(Constants.UI2_FXML);
+        loadUI(Constants.RESERVATIONS_FXML);
     }
     @FXML
-    protected void handleUI3(ActionEvent event) { loadUI(Constants.UI3_FXML); }
+    protected void handleUI3(ActionEvent event) { loadUI(Constants.EMPLOYEES_FXML); }
 
     @FXML
     protected void handleExit(ActionEvent event) {

@@ -10,28 +10,28 @@
    <left>
       <VBox prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #30415d;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton onAction="#handleUI1" prefHeight="25.0" prefWidth="301.0" text="User Interface 1" textFill="WHITE">
+            <JFXButton onAction="#handleUI1" prefHeight="25.0" prefWidth="301.0" text="Chambres" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
                <padding>
                   <Insets bottom="15.0" top="15.0" />
                </padding></JFXButton>
-            <JFXButton onAction="#handleUI2" prefHeight="25.0" prefWidth="393.0" text="User Interface 2" textFill="WHITE">
+            <JFXButton onAction="#handleUI2" prefHeight="25.0" prefWidth="393.0" text="Reservations" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
                <padding>
                   <Insets bottom="15.0" top="15.0" />
                </padding></JFXButton>
-            <JFXButton onAction="#handleUI3" prefHeight="25.0" prefWidth="413.0" text="User Interface 3" textFill="WHITE">
+            <JFXButton onAction="#handleUI3" prefHeight="25.0" prefWidth="413.0" text="Employes" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
                <padding>
                   <Insets bottom="15.0" top="15.0" />
                </padding></JFXButton>
-            <JFXButton onAction="#handleExit" prefHeight="25.0" prefWidth="271.0" text="Exit" textFill="WHITE">
+            <JFXButton onAction="#handleExit" prefHeight="25.0" prefWidth="271.0" text="Quitter" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
