@@ -57,6 +57,7 @@ public class HomeController implements Initializable {
 
         try {
             Pane newPane = FXMLLoader.load(getClass().getResource(Constants.SIDEPANELINTERFACES_PATH+ui));
+            newPane.setPrefSize(contentScrollPane.getWidth(), contentScrollPane.getHeight());
             contentScrollPane.setContent(newPane);
 
         } catch (IOException e) {
