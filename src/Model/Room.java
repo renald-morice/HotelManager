@@ -3,6 +3,7 @@ package Model;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,7 +21,7 @@ public class Room extends RecursiveTreeObject<Room> {
     private float price;
     @Column(name = "nb_guest", nullable = false)
     private int nbGuest;
-    @ManyToMany(mappedBy="rooms")
+    @ManyToMany(mappedBy="rooms", fetch = FetchType.EAGER)
     private Set<Reservation> reservations;
 
     public Room() {}
@@ -58,4 +59,16 @@ public class Room extends RecursiveTreeObject<Room> {
     public Set<Reservation> getReservations() { return reservations; }
 
     public void setReservations(Set<Reservation> reservations) { this.reservations = reservations; }
+
+    public boolean isAvailable(Date startDate, Date endDate){
+        if(reservations != null){
+            for(Reservation reservation : reservations){
+                if( startDate.compareTo(reservation.getStartDate()) * reservation.getStartDate().compareTo(endDate) >= 0
+                        || startDate.compareTo(reservation.getEndDate()) * reservation.getEndDate().compareTo(endDate) >= 0)
+                    return false;
+            }
+        }
+        return true;
+    }
+
 }

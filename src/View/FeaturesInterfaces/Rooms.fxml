@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menu.RoomsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menu.RoomsController">
    <children>
-      <JFXTreeTableView fx:id="roomsTreeView" layoutX="59.0" layoutY="61.0" prefHeight="279.0" prefWidth="482.0" />
-      <JFXTextField layoutX="59.0" layoutY="21.0" promptText="Test" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="253.0" layoutX="55.0" layoutY="26.0" stroke="WHITE" strokeType="INSIDE" width="878.0" />
+      <Label layoutX="404.0" layoutY="52.0" text="Filtrer les chambres">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="numRoomTextField" layoutX="83.0" layoutY="106.0" prefHeight="31.0" prefWidth="170.0" promptText="Numéro de chambre" />
+      <JFXTextField fx:id="minPriceTextField" layoutX="295.0" layoutY="106.0" prefHeight="31.0" prefWidth="125.0" promptText="Prix min" />
+      <JFXTextField fx:id="maxPriceTextField" layoutX="295.0" layoutY="164.0" prefHeight="31.0" prefWidth="125.0" promptText="Prix max" />
+      <JFXTextField fx:id="minNbGuestsTextField" layoutX="447.0" layoutY="106.0" prefHeight="31.0" prefWidth="216.0" promptText="Nombre de personnes min" />
+      <JFXDatePicker fx:id="startDatePicker" layoutX="704.0" layoutY="106.0" prefHeight="31.0" prefWidth="216.0" promptText="Date de début" />
+      <JFXDatePicker fx:id="endDatePicker" layoutX="704.0" layoutY="164.0" prefHeight="31.0" prefWidth="216.0" promptText="Date de fin" />
+      <JFXButton fx:id="filterButton" layoutX="445.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleFilterButtonAction" style="-fx-background-color: #30415D;" text="Filtrer" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+         </padding></JFXButton>
+      <JFXTreeTableView fx:id="roomsTreeTableView" layoutX="54.0" layoutY="308.0" prefHeight="305.0" prefWidth="878.0" />
    </children>
 </AnchorPane>
