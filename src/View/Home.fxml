@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
-   <left>
-      <VBox prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #30415d;" BorderPane.alignment="CENTER">
+<AnchorPane prefHeight="400.0" prefWidth="495.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="160.0" style="-fx-background-color: #30415d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <JFXButton onAction="#handleRooms" prefHeight="25.0" prefWidth="301.0" text="Chambres" textFill="WHITE">
                <VBox.margin>
@@ -16,21 +16,24 @@
                </VBox.margin>
                <padding>
                   <Insets bottom="15.0" top="15.0" />
-               </padding></JFXButton>
+               </padding>
+            </JFXButton>
             <JFXButton onAction="#handleReservations" prefHeight="25.0" prefWidth="393.0" text="Reservations" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
                <padding>
                   <Insets bottom="15.0" top="15.0" />
-               </padding></JFXButton>
+               </padding>
+            </JFXButton>
             <JFXButton fx:id="employeesButton" onAction="#handleEmployees" prefHeight="25.0" prefWidth="413.0" text="Employes" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
                <padding>
                   <Insets bottom="15.0" top="15.0" />
-               </padding></JFXButton>
+               </padding>
+            </JFXButton>
             <JFXButton onAction="#handleExit" prefHeight="25.0" prefWidth="271.0" text="Quitter" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
@@ -41,5 +44,10 @@
             </JFXButton>
          </children>
       </VBox>
-   </left>
-</BorderPane>
+      <ScrollPane fx:id="contentScrollPane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

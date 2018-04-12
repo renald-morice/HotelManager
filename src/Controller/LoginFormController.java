@@ -55,13 +55,15 @@ public class LoginFormController {
             Parent parent = loader.getRoot();
             Stage newStage = new Stage();
 
-            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-
-            JFXDecorator decorator = new JFXDecorator(newStage,parent,false,false,false);
+            JFXDecorator decorator = new JFXDecorator(newStage,parent,false,false,true);
             decorator.setText(Constants.WINDOW_TITLE);
             decorator.setOnCloseButtonAction(() -> System.exit(0));
-            newStage.setResizable(false);
+
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+
             newStage.setScene(new Scene(decorator,primaryScreenBounds.getWidth(),primaryScreenBounds.getHeight()));
+            newStage.setMinWidth(Constants.WINDOW_MIN_WIDTH);
+            newStage.setMinHeight(Constants.WINDOW_MIN_HEIGHT);
 
             currentStage.close();
             newStage.show();

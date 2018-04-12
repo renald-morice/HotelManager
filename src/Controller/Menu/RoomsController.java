@@ -47,5 +47,8 @@ public class RoomsController implements Initializable {
         roomsTreeView.setShowRoot(false);
         roomsTreeView.getColumns().setAll(numberColum, priceColumn, nbGuestColumn);
 
+
+
+
     }
 }
