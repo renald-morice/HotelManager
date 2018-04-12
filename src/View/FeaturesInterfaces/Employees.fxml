@@ -3,12 +3,19 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menu.EmployeesController">
+<AnchorPane fx:id="anchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menu.EmployeesController">
    <children>
-      <JFXTextField fx:id="searchInput" focusColor="#30415d" layoutX="358.0" layoutY="14.0" promptText="Recherche" />
-      <JFXButton layoutX="436.0" layoutY="489.0" onAction="#addNewEmployee" text="Ajouter un nouvel employe" textAlignment="CENTER" />
-      <JFXTreeTableView fx:id="employeesTreeTable" layoutX="312.0" layoutY="71.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+      <JFXTreeTableView fx:id="employeesTreeTable" layoutX="14.0" layoutY="65.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+      <JFXTextField fx:id="searchInput" focusColor="#30415d" layoutX="600.0" layoutY="28.0" promptText="Recherche" />
+      <Label layoutX="14.0" layoutY="30.0" text="Liste des employés" textFill="#30415d">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="428.0" layoutY="504.0" onAction="#addNewEmployee" text="Ajouter un nouvel employe" textAlignment="CENTER" />
    </children>
 </AnchorPane>
