@@ -1,8 +1,22 @@
+/*---------------*/
+/*-- DECORATOR --*/
+/*---------------*/
+.jfx-decorator {
+    -fx-decorator-color: #1e293a;
+}
+
+.jfx-decorator .jfx-decorator-buttons-container {
+    -fx-background-color: -fx-decorator-color;
+}
+
+.jfx-decorator .resize-border {
+    -fx-border-color: -fx-decorator-color;
+    -fx-border-width: 0 4 4 4;
+}
 
 /*----------------*/
 /*-- TEXTFIELDS --*/
 /*----------------*/
-
 .error-textfield{
     -fx-background-color: #ffb2b2;
 }
@@ -45,10 +59,6 @@
 
 .tree-table-view .column-header .arrow, .tree-table-view .column-header .sort-order-dot{
     -fx-background-color : #949494;
-}
-
-.tree-table-view .column-header:last-visible {
-    -fx-border-width: 0 2 0 1;
 }
 
 .tree-table-view .column-header-background {

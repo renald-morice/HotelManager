@@ -1,30 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menu.EmployeesController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menu.EmployeesController">
    <children>
-      <JFXTreeTableView fx:id="employeesTreeTable" layoutX="14.0" layoutY="65.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="902.0" />
-      <JFXTextField fx:id="searchInput" focusColor="#30415d" layoutX="745.0" layoutY="28.0" promptText="Recherche" />
-      <Label layoutX="14.0" layoutY="30.0" text="Liste des employés" textFill="#30415d">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <JFXButton layoutX="18.0" layoutY="493.0" onAction="#addNewEmployee" style="-fx-background-color: #30415d;" text="Nouvel employé" textAlignment="CENTER" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="220.0" layoutX="78.0" layoutY="30.0" stroke="WHITE" strokeType="INSIDE" width="902.0" />
+      <JFXTreeTableView fx:id="employeesTreeTable" layoutX="79.0" layoutY="272.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="305.0" prefWidth="902.0" />
+      <JFXTextField fx:id="usernameTextField" focusColor="#30415d" layoutX="114.0" layoutY="113.0" promptText="Identifiant" />
+      <JFXButton layoutX="78.0" layoutY="598.0" onAction="#addNewEmployee" style="-fx-background-color: #30415d;" text="Nouvel employé" textAlignment="CENTER" textFill="WHITE">
          <padding>
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
          </padding></JFXButton>
-      <JFXButton fx:id="modifyEmployeeButton" disable="true" layoutX="218.0" layoutY="493.0" mnemonicParsing="false" onAction="#handleModifyEmployeeButtonAction" style="-fx-background-color: #30415D;" text="Modifier" textFill="WHITE">
+      <JFXButton fx:id="modifyEmployeeButton" disable="true" layoutX="279.0" layoutY="598.0" mnemonicParsing="false" onAction="#handleModifyEmployeeButtonAction" style="-fx-background-color: #30415D;" text="Modifier" textFill="WHITE">
          <padding>
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
          </padding>
       </JFXButton>
+      <Label layoutX="413.0" layoutY="45.0" text="Filtrer la liste des employés">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="firstNameTextField" focusColor="#30415d" layoutX="290.0" layoutY="113.0" promptText="Prenom" />
+      <JFXTextField fx:id="lastNameTextField" focusColor="#30415d" layoutX="462.0" layoutY="113.0" promptText="Nom" />
+      <JFXTextField fx:id="salaryMaxTextField" focusColor="#30415d" layoutX="637.0" layoutY="154.0" promptText="Salaire Max" />
+      <JFXTextField fx:id="salaryMinTextField" focusColor="#30415d" layoutX="637.0" layoutY="113.0" promptText="Salaire Min" />
+      <JFXButton layoutX="480.0" layoutY="196.0" mnemonicParsing="false" onAction="#handleFilterButtonAction" style="-fx-background-color: #30415D;" text="Filtrer" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+         </padding>
+      </JFXButton>
+      <JFXComboBox fx:id="roleChoice" layoutX="809.0" layoutY="113.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

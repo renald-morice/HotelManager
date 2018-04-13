@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginFormController">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginFormController">
    <children>
       <ImageView fitHeight="103.0" fitWidth="143.0" layoutX="201.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -26,7 +26,10 @@
       <JFXTextField fx:id="usernameTextField" focusColor="#30415d" layoutX="176.0" layoutY="235.0" unFocusColor="#30415d" />
       <Label layoutX="176.0" layoutY="294.0" text="Mot de passe" textFill="#30415d" />
       <JFXPasswordField fx:id="passwordField" focusColor="#30415d" layoutX="176.0" layoutY="309.0" unFocusColor="#30415d" />
-      <JFXButton layoutX="206.0" layoutY="352.0" onAction="#handleSubmitButtonAction" ripplerFill="WHITE" text="Connexion" textFill="#30415d" />
-      <Label fx:id="badIDsText" layoutX="182.0" layoutY="377.0" text="Identifiants incorrects" textFill="#cf6766" visible="false" />
+      <JFXButton layoutX="189.0" layoutY="361.0" onAction="#handleSubmitButtonAction" ripplerFill="WHITE" style="-fx-background-color: #30415d;" text="Connexion" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+         </padding></JFXButton>
+      <Label fx:id="badIDsText" layoutX="182.0" layoutY="416.0" text="Identifiants incorrects" textFill="#cf6766" visible="false" />
    </children>
 </AnchorPane>

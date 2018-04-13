@@ -1,7 +1,9 @@
 package Controller.Menu;
 
 import Manager.EmployeeManager;
+import Manager.RoleManager;
 import Model.Employee;
+import Model.Role;
 import Util.Constants;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -13,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class EmployeesController extends MenuController implements Initializable {
@@ -20,7 +23,10 @@ public class EmployeesController extends MenuController implements Initializable
     private JFXTreeTableView<Employee> employeesTreeTable;
 
     @FXML
-    private JFXTextField searchInput;
+    private JFXTextField usernameTextField,firstNameTextField,lastNameTextField,salaryMinTextField,salaryMaxTextField;
+
+    @FXML
+    private JFXComboBox<Role> roleChoice;
 
     @FXML
     private JFXButton modifyEmployeeButton;
@@ -63,16 +69,6 @@ public class EmployeesController extends MenuController implements Initializable
         employeesTreeTable.setShowRoot(false);
         employeesTreeTable.getColumns().setAll(idColumn,usernameColumn,firstNameColumn,lastNameColumn,salaryColumn,roleColumn);
 
-        searchInput.textProperty().addListener((observable, oldValue, newValue) -> employeesTreeTable.setPredicate(employeeTreeItem ->
-                employeeTreeItem.getValue().getUsername().contains(newValue)
-            || Integer.toString(employeeTreeItem.getValue().getId()).contains(newValue)
-            || employeeTreeItem.getValue().getUsername().contains(newValue)
-            || employeeTreeItem.getValue().getFirstName().contains(newValue)
-            || employeeTreeItem.getValue().getLastName().contains(newValue)
-            || Double.toString(employeeTreeItem.getValue().getSalary()).contains(newValue)
-            || employeeTreeItem.getValue().getRole().getRole().contains(newValue)
-        ));
-
         employeesTreeTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 selectedEmployee = employeesTreeTable.getSelectionModel().getSelectedItem().getValue();
@@ -80,6 +76,62 @@ public class EmployeesController extends MenuController implements Initializable
             }
             else modifyEmployeeButton.setDisable(true);
         });
+
+        // POPULATE FILTER COMBO BOX
+        RoleManager roleManager = new RoleManager();
+        List<Role> roles = roleManager.listAll();
+        roleChoice.getItems().add(null);
+        roleChoice.getItems().addAll(roles);
+    }
+
+    @FXML
+    protected void handleFilterButtonAction() {
+        if(!checkInputs()) return;
+
+        employeesTreeTable.setPredicate(row ->
+            (usernameTextField.getText().equals("") || row.getValue().getUsername().contains(usernameTextField.getText()))
+                && (firstNameTextField.getText().equals("") || row.getValue().getFirstName().contains(firstNameTextField.getText()))
+                && (lastNameTextField.getText().equals("") || row.getValue().getLastName().contains(lastNameTextField.getText()))
+                && (salaryMinTextField.getText().equals("") || row.getValue().getSalary() >= Double.parseDouble(salaryMinTextField.getText()))
+                && (salaryMaxTextField.getText().equals("") || row.getValue().getSalary() <= Double.parseDouble(salaryMaxTextField.getText()))
+                && (roleChoice.getValue() == null || row.getValue().getRole().equals(roleChoice.getValue()))
+        );
+    }
+
+    private boolean checkInputs(){
+
+        usernameTextField.getStyleClass().remove("error-textfield");
+        firstNameTextField.getStyleClass().remove("error-textfield");
+        lastNameTextField.getStyleClass().remove("error-textfield");
+        salaryMinTextField.getStyleClass().remove("error-textfield");
+        salaryMaxTextField.getStyleClass().remove("error-textfield");
+
+        if(!salaryMinTextField.getText().equals("")){
+            try{
+                Double.parseDouble(salaryMinTextField.getText());
+            } catch (NumberFormatException e){
+                salaryMinTextField.getStyleClass().add("error-textfield");
+                return false;
+            }
+        }
+
+        if(!salaryMaxTextField.getText().equals("")){
+            try{
+                Double.parseDouble(salaryMaxTextField.getText());
+            } catch (NumberFormatException e){
+                salaryMaxTextField.getStyleClass().add("error-textfield");
+                return false;
+            }
+        }
+
+        if(!salaryMinTextField.getText().equals("") && !salaryMaxTextField.getText().equals("") &&
+                Double.parseDouble(salaryMinTextField.getText()) > Double.parseDouble(salaryMaxTextField.getText())){
+            salaryMinTextField.getStyleClass().add("error-textfield");
+            salaryMaxTextField.getStyleClass().add("error-textfield");
+            return false;
+        }
+
+        return true;
     }
 
     @FXML

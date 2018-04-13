@@ -22,13 +22,7 @@ public class RoomsController extends MenuController implements Initializable {
     private JFXTreeTableView<Room> roomsTreeTableView;
 
     @FXML
-    private JFXTextField numRoomTextField;
-    @FXML
-    private JFXTextField minPriceTextField;
-    @FXML
-    private JFXTextField maxPriceTextField;
-    @FXML
-    private JFXTextField minNbGuestsTextField;
+    private JFXTextField numRoomTextField,minPriceTextField,maxPriceTextField,minNbGuestsTextField;
 
     @FXML
     private JFXButton modifyRoomButton;

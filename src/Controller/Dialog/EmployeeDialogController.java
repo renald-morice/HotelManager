@@ -74,7 +74,6 @@ public class EmployeeDialogController extends DialogController implements Initia
             if (role.equals(employee.getRole())) roleChoice.setValue(role);
         }
 
-
         actionButton.setText("Modifier");
     }
 
@@ -99,9 +98,7 @@ public class EmployeeDialogController extends DialogController implements Initia
     }
 
     @FXML
-    protected void handleCancelButtonAction() {
-        dialog.close();
-    }
+    protected void handleCancelButtonAction() { dialog.close(); }
 
     private boolean checkInputs(){
         usernameTextField.getStyleClass().remove("error-textfield");
