@@ -10,3 +10,6 @@
 /*-----------*/
 /*-- Table --*/
 /*-----------*/
+.tree-table-view {
+    -fx-tree-table-color: #30415d;
+}

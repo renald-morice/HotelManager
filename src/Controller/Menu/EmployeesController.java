@@ -22,8 +22,12 @@ public class EmployeesController extends MenuController implements Initializable
     @FXML
     private JFXTextField searchInput;
 
+    @FXML
+    private JFXButton modifyEmployeeButton;
+
     private EmployeeManager employeeManager = new EmployeeManager();
     private ObservableList<Employee> employees;
+    private Employee selectedEmployee;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -68,13 +72,28 @@ public class EmployeesController extends MenuController implements Initializable
             || Double.toString(employeeTreeItem.getValue().getSalary()).contains(newValue)
             || employeeTreeItem.getValue().getRole().getRole().contains(newValue)
         ));
+
+        employeesTreeTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                selectedEmployee = employeesTreeTable.getSelectionModel().getSelectedItem().getValue();
+                modifyEmployeeButton.setDisable(false);
+            }
+            else modifyEmployeeButton.setDisable(true);
+        });
     }
 
     @FXML
-    protected void addNewEmployee() { loadDialog(Constants.NEW_EMPLOYEE_DIALOG_FXML); }
+    protected void addNewEmployee() { loadDialog(Constants.NEW_EMPLOYEE_DIALOG_FXML,null); }
 
-    public void refreshTable(Employee employee) {
-        employees.add(employee);
-        employeesTreeTable.refresh();
+    @FXML
+    protected void handleModifyEmployeeButtonAction() {
+        loadDialog(Constants.NEW_EMPLOYEE_DIALOG_FXML, selectedEmployee);
     }
+
+    public void addEmployeeToTable(Employee employee) {
+        employees.add(employee);
+        refreshTable();
+    }
+
+    public void refreshTable() { employeesTreeTable.refresh(); }
 }

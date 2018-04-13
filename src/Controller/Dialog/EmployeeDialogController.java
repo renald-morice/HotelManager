@@ -6,6 +6,7 @@ import Manager.RoleManager;
 import Model.Employee;
 import Model.Role;
 import Util.MD5Hashing;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -23,21 +24,27 @@ public class EmployeeDialogController extends DialogController implements Initia
     private JFXComboBox<Role> roleChoice;
     @FXML
     private Label usernameLabel,firstNameLabel,lastNameLabel,salaryLabel,errorLabel;
+    @FXML
+    private JFXButton actionButton;
 
     private EmployeeManager employeeManager = new EmployeeManager();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         RoleManager roleManager = new RoleManager();
         List<Role> roles = roleManager.listAll();
         roleChoice.getItems().addAll(roles);
-        roleChoice.setPromptText("Choisir le role de l'employé");
     }
 
     @FXML
     protected void handleAddEmployeeButtonAction() {
         if(!checkInputs()) return;
+        if(actionButton.getText().equals("Ajouter")) addEmployee();
+        else modifyEmployee();
+    }
 
+    private void addEmployee(){
         Employee employee = new Employee(
                 usernameTextField.getText(),
                 MD5Hashing.hash("test"),
@@ -50,7 +57,43 @@ public class EmployeeDialogController extends DialogController implements Initia
         if(employeeManager.exists(employee.getUsername()) != null) displayError("Cet identifiant est déjà associé à un employé !");
         else {
             employeeManager.add(employee);
-            ((EmployeesController)menuController).refreshTable(employee);
+            ((EmployeesController)menuController).addEmployeeToTable(employee);
+            dialog.close();
+        }
+    }
+
+    @Override
+    protected void initObjectToModify() {
+        Employee employee = (Employee) objectToModify;
+
+        usernameTextField.setText(String.valueOf(employee.getUsername()));
+        firstNameTextField.setText(String.valueOf(employee.getFirstName()));
+        lastNameTextField.setText(String.valueOf(employee.getLastName()));
+        salaryTextField.setText(String.valueOf(employee.getSalary()));
+        for (Role role:roleChoice.getItems() ) {
+            if (role.equals(employee.getRole())) roleChoice.setValue(role);
+        }
+
+
+        actionButton.setText("Modifier");
+    }
+
+    private void modifyEmployee() {
+        Employee employeeToModify = (Employee) objectToModify;
+        String usernameEmployee = usernameTextField.getText();
+
+        if(!employeeToModify.getUsername().equals(usernameEmployee) && employeeManager.exists(usernameEmployee) != null){
+            displayError("L'employé existe déjà !");
+        }
+        else{
+            employeeToModify.setUsername(usernameEmployee);
+            employeeToModify.setFirstName(firstNameTextField.getText());
+            employeeToModify.setLastName(lastNameTextField.getText());
+            employeeToModify.setSalary(Double.parseDouble(salaryTextField.getText()));
+            employeeToModify.setRole(roleChoice.getValue());
+
+            employeeManager.update(employeeToModify);
+            ((EmployeesController)menuController).refreshTable();
             dialog.close();
         }
     }
@@ -105,10 +148,5 @@ public class EmployeeDialogController extends DialogController implements Initia
     private void displayError(String error){
         errorLabel.setText(error);
         errorLabel.setVisible(true);
-    }
-
-    @Override
-    protected void initObjectToModify() {
-
     }
 }

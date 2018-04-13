@@ -35,4 +35,14 @@ public class Role {
     public void setAccessLevel(int accessLevel) { this.accessLevel = accessLevel; }
 
     public String toString() { return role+" "+accessLevel; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (o == this) return true;
+        if (!(o instanceof Role))return false;
+        Role role = (Role) o;
+        if (this.role.equals((role.role))) return true;
+        else return false;
+    }
 }

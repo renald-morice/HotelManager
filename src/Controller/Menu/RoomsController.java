@@ -1,6 +1,5 @@
 package Controller.Menu;
 
-import Controller.Dialog.RoomDialogController;
 import Manager.RoomManager;
 import Model.Room;
 import Util.Constants;
@@ -162,12 +161,12 @@ public class RoomsController extends MenuController implements Initializable {
 
 
     @FXML
-    protected void handleNewRoomButtonAction(ActionEvent event) {
+    protected void handleNewRoomButtonAction() {
         loadDialog(Constants.ROOM_DIALOG_FXML, null);
     }
 
     @FXML
-    protected void handleModifyRoomButtonAction(ActionEvent event) {
+    protected void handleModifyRoomButtonAction() {
         loadDialog(Constants.ROOM_DIALOG_FXML, selectedRoom);
     }
 

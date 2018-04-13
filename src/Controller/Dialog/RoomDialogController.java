@@ -12,19 +12,9 @@ import javafx.scene.control.Label;
 public class RoomDialogController extends DialogController {
 
     @FXML
-    private Label numRoomLabel;
+    private Label numRoomLabel,priceLabel,nbGuestsLabel,errorLabel;
     @FXML
-    private Label priceLabel;
-    @FXML
-    private Label nbGuestsLabel;
-    @FXML
-    private JFXTextField numRoomTextField;
-    @FXML
-    private JFXTextField priceTextField;
-    @FXML
-    private JFXTextField nbGuestsTextField;
-    @FXML
-    private Label errorLabel;
+    private JFXTextField numRoomTextField,priceTextField,nbGuestsTextField;
     @FXML
     private JFXButton actionButton;
 
@@ -32,33 +22,26 @@ public class RoomDialogController extends DialogController {
 
 
     @FXML
-    protected void handleActionButtonAction(ActionEvent event) {
-
-        Room room;
-
+    protected void handleActionButtonAction() {
         if(!checkInputs()) return;
-
-        if(actionButton.getText() == "Ajouter") addRoom();
+        if(actionButton.getText().equals("Ajouter")) addRoom();
         else modifyRoom();
 
     }
 
     @FXML
-    protected void handleCancelButtonAction(ActionEvent event) {
+    protected void handleCancelButtonAction() {
         dialog.close();
     }
 
     private void addRoom(){
-
         Room room = new Room(
                 Integer.parseInt(numRoomTextField.getText()),
                 Float.parseFloat(priceTextField.getText()),
                 Integer.parseInt(nbGuestsTextField.getText())
         );
 
-        if(roomManager.exists(room.getNumber()) != null){
-            displayError("Le numéro de chambre existe déjà !");
-        }
+        if(roomManager.exists(room.getNumber()) != null) displayError("Le numéro de chambre existe déjà !");
         else{
             roomManager.add(room);
             ((RoomsController)menuController).addRoomToTable(room);
@@ -67,8 +50,7 @@ public class RoomDialogController extends DialogController {
 
     }
 
-    private void modifyRoom(){
-
+    private void modifyRoom() {
         Room roomToModify = (Room) objectToModify;
         int numRoom = Integer.parseInt(numRoomTextField.getText());
 
@@ -88,7 +70,6 @@ public class RoomDialogController extends DialogController {
 
     @Override
     protected void initObjectToModify() {
-
         Room room = (Room) objectToModify;
 
         numRoomTextField.setText(String.valueOf(room.getNumber()));
@@ -99,7 +80,6 @@ public class RoomDialogController extends DialogController {
     }
 
     private boolean checkInputs(){
-
         numRoomTextField.getStyleClass().remove("error-textfield");
         priceTextField.getStyleClass().remove("error-textfield");
         nbGuestsTextField.getStyleClass().remove("error-textfield");
@@ -136,5 +116,4 @@ public class RoomDialogController extends DialogController {
         errorLabel.setText(error);
         errorLabel.setVisible(true);
     }
-
 }

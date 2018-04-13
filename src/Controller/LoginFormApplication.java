@@ -1,7 +1,6 @@
 package Controller;
 
 import Util.Constants;
-import Util.DataSet;
 import Util.Hibernate;
 import com.jfoenix.controls.JFXDecorator;
 import javafx.application.Application;
@@ -30,7 +29,7 @@ public class LoginFormApplication extends Application {
         decorator.setText(Constants.WINDOW_TITLE);
         window.setResizable(false);
         Scene scene = new Scene(decorator);
-        scene.getStylesheets().add(getClass().getResource("/CSS/main.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/Resources/CSS/main.css").toExternalForm());
         window.setScene(scene);
         window.show();
 

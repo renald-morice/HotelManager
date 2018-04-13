@@ -113,7 +113,7 @@ public class Employee extends RecursiveTreeObject<Employee> {
         return salary;
     }
 
-    public void setSalary( float salary ) {
+    public void setSalary( double salary ) {
         this.salary = salary;
     }
 
