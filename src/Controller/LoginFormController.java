@@ -61,9 +61,9 @@ public class LoginFormController {
 
             Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 
-            newStage.setScene(new Scene(decorator,primaryScreenBounds.getWidth(),primaryScreenBounds.getHeight()));
-            newStage.setMinWidth(Constants.WINDOW_MIN_WIDTH);
-            newStage.setMinHeight(Constants.WINDOW_MIN_HEIGHT);
+            Scene scene = new Scene(decorator,primaryScreenBounds.getWidth(),primaryScreenBounds.getHeight());
+            scene.getStylesheets().add(getClass().getResource("/CSS/main.css").toExternalForm());
+            newStage.setScene(scene);
 
             currentStage.close();
             newStage.show();

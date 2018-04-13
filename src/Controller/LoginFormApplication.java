@@ -29,7 +29,9 @@ public class LoginFormApplication extends Application {
         decorator.setOnCloseButtonAction(() -> System.exit(0));
         decorator.setText(Constants.WINDOW_TITLE);
         window.setResizable(false);
-        window.setScene(new Scene(decorator));
+        Scene scene = new Scene(decorator);
+        scene.getStylesheets().add(getClass().getResource("/CSS/main.css").toExternalForm());
+        window.setScene(scene);
         window.show();
 
     }

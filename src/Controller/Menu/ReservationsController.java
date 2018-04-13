@@ -1,5 +1,5 @@
 package Controller.Menu;
 
-public class ReservationsController {
+public class ReservationsController extends MenuController {
 
 }

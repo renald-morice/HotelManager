@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class EmployeesController implements Initializable {
+public class EmployeesController extends MenuController implements Initializable {
     @FXML
     private JFXTreeTableView<Employee> employeesTreeTable;
 

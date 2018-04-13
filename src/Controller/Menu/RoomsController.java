@@ -1,31 +1,23 @@
 package Controller.Menu;
 
+import Controller.Dialog.RoomDialogController;
 import Manager.RoomManager;
-import Model.Reservation;
 import Model.Room;
+import Util.Constants;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.*;
 
 import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.ResourceBundle;
 
-public class RoomsController implements Initializable {
+public class RoomsController extends MenuController implements Initializable {
 
     @FXML
     private JFXTreeTableView<Room> roomsTreeTableView;
@@ -38,26 +30,17 @@ public class RoomsController implements Initializable {
     private JFXTextField maxPriceTextField;
     @FXML
     private JFXTextField minNbGuestsTextField;
-    @FXML
-    private JFXDatePicker startDatePicker;
-    @FXML
-    private JFXDatePicker endDatePicker;
-    @FXML
-    private JFXButton filterButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         JFXTreeTableColumn<Room, String> numberColum = new JFXTreeTableColumn<>("Numéro");
-        numberColum.setPrefWidth(150);
         numberColum.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getValue().getNumber())));
 
         JFXTreeTableColumn<Room, String> priceColumn = new JFXTreeTableColumn<>("Prix");
-        priceColumn.setPrefWidth(150);
         priceColumn.setCellValueFactory(param -> new SimpleStringProperty(Float.toString(param.getValue().getValue().getPrice())));
 
         JFXTreeTableColumn<Room, String> nbGuestColumn = new JFXTreeTableColumn<>("Places");
-        nbGuestColumn.setPrefWidth(150);
         nbGuestColumn.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getValue().getNbGuest())));
 
         numberColum.prefWidthProperty().bind(roomsTreeTableView.widthProperty().divide(3));
@@ -74,6 +57,11 @@ public class RoomsController implements Initializable {
         roomsTreeTableView.setShowRoot(false);
         roomsTreeTableView.getColumns().setAll(numberColum, priceColumn, nbGuestColumn);
 
+
+//        roomsTreeTableView.getSelectionModel().setSelectionMode(
+//                SelectionMode.MULTIPLE
+//        );
+
     }
 
     @FXML
@@ -86,27 +74,26 @@ public class RoomsController implements Initializable {
                 && (minPriceTextField.getText().equals("") || row.getValue().getPrice() >= Float.parseFloat(minPriceTextField.getText()))
                 && (maxPriceTextField.getText().equals("") || row.getValue().getPrice() <= Float.parseFloat(maxPriceTextField.getText()))
                 && (minNbGuestsTextField.getText().equals("") || row.getValue().getNbGuest() >= Float.parseFloat(minNbGuestsTextField.getText()))
-                && (startDatePicker.getValue() == null || row.getValue().isAvailable(
+                /*&& (startDatePicker.getValue() == null || row.getValue().isAvailable(
                         Date.from(Instant.from(startDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()))),
                         Date.from(Instant.from(endDatePicker.getValue().atStartOfDay(ZoneId.systemDefault())))
                     )
-                )
-
+                )*/
         );
     }
 
     public boolean checkInputs(){
 
-        numRoomTextField.setStyle("-fx-border-color: default;");
-        minPriceTextField.setStyle("-fx-border-color: default;");
-        maxPriceTextField.setStyle("-fx-border-color: default;");
-        minNbGuestsTextField.setStyle("-fx-border-color: default;");
+        numRoomTextField.getStyleClass().remove("error-textfield");
+        minPriceTextField.getStyleClass().remove("error-textfield");
+        maxPriceTextField.getStyleClass().remove("error-textfield");
+        minNbGuestsTextField.getStyleClass().remove("error-textfield");
 
         if(!numRoomTextField.getText().equals("")){
             try{
                 Integer.parseInt(numRoomTextField.getText());
             } catch (NumberFormatException e){
-                numRoomTextField.setStyle("-fx-border-color: red;");
+                numRoomTextField.getStyleClass().add("error-textfield");
                 return false;
             }
         }
@@ -115,7 +102,7 @@ public class RoomsController implements Initializable {
             try{
                 Float.parseFloat(minPriceTextField.getText());
             } catch (NumberFormatException e){
-                minPriceTextField.setStyle("-fx-border-color: red;");
+                minPriceTextField.getStyleClass().add("error-textfield");
                 return false;
             }
         }
@@ -124,15 +111,15 @@ public class RoomsController implements Initializable {
             try{
                 Float.parseFloat(maxPriceTextField.getText());
             } catch (NumberFormatException e){
-                maxPriceTextField.setStyle("-fx-border-color: red;");
+                maxPriceTextField.getStyleClass().add("error-textfield");
                 return false;
             }
         }
 
         if(!minPriceTextField.getText().equals("") && !maxPriceTextField.getText().equals("") &&
                 Float.parseFloat(minPriceTextField.getText()) > Float.parseFloat(maxPriceTextField.getText())){
-            minPriceTextField.setStyle("-fx-border-color: red;");
-            maxPriceTextField.setStyle("-fx-border-color: red;");
+            minPriceTextField.getStyleClass().add("error-textfield");
+            maxPriceTextField.getStyleClass().add("error-textfield");
             return false;
         }
 
@@ -140,15 +127,21 @@ public class RoomsController implements Initializable {
             try {
                 Integer.parseInt(minNbGuestsTextField.getText());
             } catch (NumberFormatException e) {
-                minNbGuestsTextField.setStyle("-fx-border-color: red;");
+                minNbGuestsTextField.getStyleClass().add("error-textfield");
                 return false;
             }
         }
 
-        if(startDatePicker.getValue() == null && endDatePicker.getValue() != null) startDatePicker.setValue(endDatePicker.getValue());
-        else if (startDatePicker.getValue() != null && endDatePicker.getValue() == null) endDatePicker.setValue(startDatePicker.getValue());
+//        if(startDatePicker.getValue() == null && endDatePicker.getValue() != null) startDatePicker.setValue(endDatePicker.getValue());
+//        else if (startDatePicker.getValue() != null && endDatePicker.getValue() == null) endDatePicker.setValue(startDatePicker.getValue());
 
         return true;
+    }
+
+
+    @FXML
+    protected void handleNewRoomButtonAction(ActionEvent event) {
+        loadDialog(Constants.ROOM_DIALOG_FXML);
     }
 
 
