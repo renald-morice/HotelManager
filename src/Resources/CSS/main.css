@@ -21,9 +21,9 @@
     -fx-background-color: #ffb2b2;
 }
 
-/*-----------*/
-/*-- Table --*/
-/*-----------*/
+/*------------*/
+/*-- TABLES --*/
+/*------------*/
 .tree-table-view {
     -fx-tree-table-color: #30415d;
 }
@@ -66,3 +66,10 @@
     -fx-border-color:#F3F3F3;
 }
 
+/*------------------*/
+/*-- DATE PICKERS --*/
+/*------------------*/
+
+.jfx-date-picker .month-year-pane, .jfx-date-picker > .arrow-button > .jfx-svg-glyph {
+    -fx-background-color: #30415d;
+}

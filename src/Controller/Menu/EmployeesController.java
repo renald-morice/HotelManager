@@ -37,28 +37,29 @@ public class EmployeesController extends MenuController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         JFXTreeTableColumn<Employee, String> idColumn = new JFXTreeTableColumn<>("ID");
-        idColumn.setPrefWidth(150);
         idColumn.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getValue().getId())));
 
         JFXTreeTableColumn<Employee, String> usernameColumn = new JFXTreeTableColumn<>("Identifiant");
-        usernameColumn.setPrefWidth(150);
         usernameColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue().getUsername()));
 
         JFXTreeTableColumn<Employee, String> firstNameColumn = new JFXTreeTableColumn<>("Prénom");
-        firstNameColumn.setPrefWidth(150);
         firstNameColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue().getFirstName()));
 
         JFXTreeTableColumn<Employee, String> lastNameColumn = new JFXTreeTableColumn<>("Nom");
-        lastNameColumn.setPrefWidth(150);
         lastNameColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue().getLastName()));
 
         JFXTreeTableColumn<Employee, String> salaryColumn = new JFXTreeTableColumn<>("Salaire");
-        salaryColumn.setPrefWidth(150);
         salaryColumn.setCellValueFactory(param -> new SimpleStringProperty(Double.toString(param.getValue().getValue().getSalary())));
 
         JFXTreeTableColumn<Employee, String> roleColumn = new JFXTreeTableColumn<>("Role");
-        roleColumn.setPrefWidth(150);
         roleColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue().getRole().getRole()));
+
+        idColumn.prefWidthProperty().bind(employeesTreeTable.widthProperty().divide(6));
+        usernameColumn.prefWidthProperty().bind(employeesTreeTable.widthProperty().divide(6));
+        firstNameColumn.prefWidthProperty().bind(employeesTreeTable.widthProperty().divide(6));
+        lastNameColumn.prefWidthProperty().bind(employeesTreeTable.widthProperty().divide(6));
+        salaryColumn.prefWidthProperty().bind(employeesTreeTable.widthProperty().divide(6));
+        roleColumn.prefWidthProperty().bind(employeesTreeTable.widthProperty().divide(6.1));
 
         // GET DATA
         employees = FXCollections.observableArrayList(employeeManager.listAll());
