@@ -33,8 +33,7 @@ public class EmployeeDialogController extends DialogController implements Initia
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         RoleManager roleManager = new RoleManager();
-        List<Role> roles = roleManager.listAll();
-        roleChoice.getItems().addAll(roles);
+        roleChoice.getItems().addAll(roleManager.listAll());
     }
 
     @FXML

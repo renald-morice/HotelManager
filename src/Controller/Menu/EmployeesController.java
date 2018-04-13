@@ -15,7 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class EmployeesController extends MenuController implements Initializable {
@@ -79,9 +78,8 @@ public class EmployeesController extends MenuController implements Initializable
 
         // POPULATE FILTER COMBO BOX
         RoleManager roleManager = new RoleManager();
-        List<Role> roles = roleManager.listAll();
         roleChoice.getItems().add(null);
-        roleChoice.getItems().addAll(roles);
+        roleChoice.getItems().addAll(roleManager.listAll());
     }
 
     @FXML

@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="495.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.HomeController">
    <children>
-      <VBox prefHeight="400.0" prefWidth="160.0" style="-fx-background-color: #30415d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #30415d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <JFXButton onAction="#handleRooms" prefHeight="25.0" prefWidth="301.0" text="Chambres" textFill="WHITE">
                <VBox.margin>
@@ -35,6 +35,14 @@
                   <Insets bottom="15.0" top="15.0" />
                </padding>
             </JFXButton>
+            <JFXButton mnemonicParsing="false" onAction="#handleMyAccount" prefHeight="46.0" prefWidth="274.0" text="Mon compte" textFill="WHITE">
+               <padding>
+                  <Insets bottom="15.0" top="15.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </JFXButton>
             <JFXButton onAction="#handleExit" prefHeight="25.0" prefWidth="271.0" text="Quitter" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
@@ -45,7 +53,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <StackPane fx:id="contentStackPane" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane fx:id="contentStackPane" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ScrollPane fx:id="contentScrollPane" prefHeight="200.0" prefWidth="200.0" />
          </children></StackPane>

@@ -36,7 +36,6 @@ public class LoginFormController {
 
         if(employee == null || !employee.getPassword().equals(MD5Hashing.hash(passwordField.getText()))) badIDsText.setVisible(true);
         else {
-
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource(Constants.HOME_FXML));
 
@@ -46,8 +45,7 @@ public class LoginFormController {
                 e.printStackTrace();
             }
 
-            HomeController homeController = loader.getController();
-            homeController.setEmployee(employee);
+            Session.getInstance().setEmployee(employee);
 
             Node source = (Node) event.getSource();
             Stage currentStage = (Stage) source.getScene().getWindow();
