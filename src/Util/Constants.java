@@ -27,6 +27,7 @@ public class Constants {
     // DIALOGS
     public static final String ROOM_DIALOG_FXML = "/View/Dialog/RoomDialog.fxml";
     public static final String NEW_EMPLOYEE_DIALOG_FXML = "/View/Dialog/EmployeeDialog.fxml";
+    public static final String PASSWORD_DIALOG_FXML = "/View/Dialog/PasswordDialog.fxml";
 
     /**
      * HIBERNATE

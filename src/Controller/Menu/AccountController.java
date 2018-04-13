@@ -2,6 +2,7 @@ package Controller.Menu;
 
 import Controller.Session;
 import Model.Employee;
+import Util.Constants;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -11,13 +12,18 @@ import java.util.ResourceBundle;
 
 public class AccountController extends MenuController implements Initializable {
     @FXML
-    private Label firstNameLabel,lastNameLabel;
+    private Label firstNameLabel,lastNameLabel,roleLabel,usernameLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Employee employee = Session.getInstance().getEmployee();
 
-        firstNameLabel.setText(employee.getFirstName());
-        lastNameLabel.setText(employee.getLastName());
+        firstNameLabel.setText(firstNameLabel.getText()+employee.getFirstName());
+        lastNameLabel.setText(lastNameLabel.getText()+employee.getLastName());
+        roleLabel.setText(roleLabel.getText()+employee.getRole().toString());
+        usernameLabel.setText(usernameLabel.getText()+employee.getUsername());
     }
+
+    @FXML
+    private void handleModifyPassword() { loadDialog(Constants.PASSWORD_DIALOG_FXML, null); }
 }
