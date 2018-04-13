@@ -31,8 +31,13 @@ public class RoomsController extends MenuController implements Initializable {
     @FXML
     private JFXTextField minNbGuestsTextField;
 
+    @FXML
+    private JFXButton modifyRoomButton;
+
     private ObservableList<Room> rooms;
     private RoomManager roomManager = new RoomManager();
+
+    private Room selectedRoom;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -62,10 +67,22 @@ public class RoomsController extends MenuController implements Initializable {
 //                SelectionMode.MULTIPLE
 //        );
 
+        roomsTreeTableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                selectedRoom = roomsTreeTableView.getSelectionModel().getSelectedItem().getValue();
+                modifyRoomButton.setDisable(false);
+            }
+            else modifyRoomButton.setDisable(true);
+        });
+
     }
 
     public void addRoomToTable(Room room) {
         rooms.add(room);
+        refreshTable();
+    }
+
+    public void refreshTable() {
         roomsTreeTableView.refresh();
     }
 
@@ -146,7 +163,12 @@ public class RoomsController extends MenuController implements Initializable {
 
     @FXML
     protected void handleNewRoomButtonAction(ActionEvent event) {
-        loadDialog(Constants.ROOM_DIALOG_FXML);
+        loadDialog(Constants.ROOM_DIALOG_FXML, null);
+    }
+
+    @FXML
+    protected void handleModifyRoomButtonAction(ActionEvent event) {
+        loadDialog(Constants.ROOM_DIALOG_FXML, selectedRoom);
     }
 
 

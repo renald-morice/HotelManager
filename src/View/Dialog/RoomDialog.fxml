@@ -11,12 +11,12 @@
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="517.0">
          <children>
-            <JFXButton layoutX="123.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleAddRoomButtonAction" style="-fx-background-color: #30415D;" text="Ajouter" textFill="WHITE">
+            <JFXButton fx:id="actionButton" layoutX="292.0" layoutY="299.0" mnemonicParsing="false" onAction="#handleActionButtonAction" style="-fx-background-color: #30415D;" text="Ajouter" textFill="WHITE" AnchorPane.rightAnchor="120.0">
                <padding>
                   <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
                </padding>
             </JFXButton>
-            <JFXButton layoutX="283.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleCancelButtonAction" style="-fx-background-color: #30415D;" text="Annuler" textFill="WHITE">
+            <JFXButton layoutX="120.0" layoutY="299.0" mnemonicParsing="false" onAction="#handleCancelButtonAction" style="-fx-background-color: #30415D;" text="Annuler" textFill="WHITE" AnchorPane.leftAnchor="120.0">
                <padding>
                   <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
                </padding>

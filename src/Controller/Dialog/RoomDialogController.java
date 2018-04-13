@@ -3,6 +3,7 @@ package Controller.Dialog;
 import Controller.Menu.RoomsController;
 import Manager.RoomManager;
 import Model.Room;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,14 +25,30 @@ public class RoomDialogController extends DialogController {
     private JFXTextField nbGuestsTextField;
     @FXML
     private Label errorLabel;
+    @FXML
+    private JFXButton actionButton;
 
     private RoomManager roomManager = new RoomManager();
 
 
     @FXML
-    protected void handleAddRoomButtonAction(ActionEvent event) {
+    protected void handleActionButtonAction(ActionEvent event) {
+
+        Room room;
 
         if(!checkInputs()) return;
+
+        if(actionButton.getText() == "Ajouter") addRoom();
+        else modifyRoom();
+
+    }
+
+    @FXML
+    protected void handleCancelButtonAction(ActionEvent event) {
+        dialog.close();
+    }
+
+    private void addRoom(){
 
         Room room = new Room(
                 Integer.parseInt(numRoomTextField.getText()),
@@ -50,9 +67,35 @@ public class RoomDialogController extends DialogController {
 
     }
 
-    @FXML
-    protected void handleCancelButtonAction(ActionEvent event) {
-        dialog.close();
+    private void modifyRoom(){
+
+        Room roomToModify = (Room) objectToModify;
+        int numRoom = Integer.parseInt(numRoomTextField.getText());
+
+        if(roomToModify.getNumber() != numRoom && roomManager.exists(numRoom) != null){
+            displayError("Le numéro de chambre existe déjà !");
+        }
+        else{
+            roomToModify.setNumber(numRoom);
+            roomToModify.setPrice(Float.parseFloat(priceTextField.getText()));
+            roomToModify.setNbGuest(Integer.parseInt(nbGuestsTextField.getText()));
+
+            roomManager.update(roomToModify);
+            ((RoomsController)menuController).refreshTable();
+            dialog.close();
+        }
+    }
+
+    @Override
+    protected void initObjectToModify() {
+
+        Room room = (Room) objectToModify;
+
+        numRoomTextField.setText(String.valueOf(room.getNumber()));
+        priceTextField.setText(String.valueOf(room.getPrice()));
+        nbGuestsTextField.setText(String.valueOf(room.getNbGuest()));
+
+        actionButton.setText("Modifier");
     }
 
     private boolean checkInputs(){

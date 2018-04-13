@@ -16,7 +16,7 @@ public abstract class MenuController {
         this.contentStackPane = stackPane;
     }
 
-    protected void loadDialog(String fxmlFile){
+    protected void loadDialog(String fxmlFile, Object objectToModify){
 
         try {
 
@@ -27,6 +27,7 @@ public abstract class MenuController {
             DialogController dialogController = loader.getController();
             dialogController.setDialog(dialog);
             dialogController.setMenuController(this);
+            if(objectToModify != null) dialogController.setObjectToModify(objectToModify);
             dialog.setOverlayClose(false);
             dialog.show();
 
