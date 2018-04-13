@@ -26,6 +26,7 @@ public abstract class MenuController {
             JFXDialog dialog = new JFXDialog(contentStackPane, dialogLayout, JFXDialog.DialogTransition.CENTER);
             DialogController dialogController = loader.getController();
             dialogController.setDialog(dialog);
+            dialogController.setMenuController(this);
             dialog.setOverlayClose(false);
             dialog.show();
 

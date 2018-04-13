@@ -31,6 +31,9 @@ public class RoomsController extends MenuController implements Initializable {
     @FXML
     private JFXTextField minNbGuestsTextField;
 
+    private ObservableList<Room> rooms;
+    private RoomManager roomManager = new RoomManager();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -47,21 +50,23 @@ public class RoomsController extends MenuController implements Initializable {
         priceColumn.prefWidthProperty().bind(roomsTreeTableView.widthProperty().divide(3));
         nbGuestColumn.prefWidthProperty().bind(roomsTreeTableView.widthProperty().divide(3));
 
-
-        // GET DATA
-        RoomManager roomManager = new RoomManager();
-        ObservableList<Room> rooms = FXCollections.observableArrayList(roomManager.listAll());
-
-        final TreeItem<Room> root = new RecursiveTreeItem<>(rooms, RecursiveTreeObject::getChildren);
-        roomsTreeTableView.setRoot(root);
-        roomsTreeTableView.setShowRoot(false);
         roomsTreeTableView.getColumns().setAll(numberColum, priceColumn, nbGuestColumn);
 
+        rooms = FXCollections.observableArrayList(roomManager.listAll());
+        final TreeItem<Room> root = new RecursiveTreeItem<>(rooms, RecursiveTreeObject::getChildren);
+
+        roomsTreeTableView.setRoot(root);
+        roomsTreeTableView.setShowRoot(false);
 
 //        roomsTreeTableView.getSelectionModel().setSelectionMode(
 //                SelectionMode.MULTIPLE
 //        );
 
+    }
+
+    public void addRoomToTable(Room room) {
+        rooms.add(room);
+        roomsTreeTableView.refresh();
     }
 
     @FXML
@@ -82,7 +87,7 @@ public class RoomsController extends MenuController implements Initializable {
         );
     }
 
-    public boolean checkInputs(){
+    private boolean checkInputs(){
 
         numRoomTextField.getStyleClass().remove("error-textfield");
         minPriceTextField.getStyleClass().remove("error-textfield");

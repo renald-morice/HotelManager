@@ -12,7 +12,7 @@ public class RoomManager extends Manager{
     public RoomManager(){ }
 
     public List<Room> listAll(){
-        return (List<Room>)(List<?>) super.sqlList("FROM Room", null);
+        return (List<Room>)(List<?>) super.sqlList("FROM Room ORDER BY number", null);
     }
 
     public Room exists(int number){
