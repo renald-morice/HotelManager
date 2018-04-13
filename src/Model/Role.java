@@ -34,7 +34,7 @@ public class Role {
 
     public void setAccessLevel(int accessLevel) { this.accessLevel = accessLevel; }
 
-    public String toString() { return role+" "+accessLevel; }
+    public String toString() { return role; }
 
     @Override
     public boolean equals(Object o) {
