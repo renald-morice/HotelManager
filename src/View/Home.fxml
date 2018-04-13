@@ -19,7 +19,7 @@
                   <Insets bottom="15.0" top="15.0" />
                </padding>
             </JFXButton>
-            <JFXButton onAction="#handleReservations" prefHeight="25.0" prefWidth="393.0" text="Reservations" textFill="WHITE">
+            <JFXButton onAction="#handleReservations" prefHeight="25.0" prefWidth="393.0" text="Réservations" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
@@ -27,7 +27,7 @@
                   <Insets bottom="15.0" top="15.0" />
                </padding>
             </JFXButton>
-            <JFXButton fx:id="employeesButton" onAction="#handleEmployees" prefHeight="25.0" prefWidth="413.0" text="Employes" textFill="WHITE">
+            <JFXButton fx:id="employeesButton" onAction="#handleEmployees" prefHeight="25.0" prefWidth="413.0" text="Employés" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>

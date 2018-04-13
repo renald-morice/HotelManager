@@ -22,8 +22,9 @@ public class Constants {
     public static final int ACCESS_LEVEL_MIN = 3;
     // NO PERMISSION
     public static final String NO_ACCESS_FXML = "/View/FeaturesInterfaces/NoAccess.fxml";
-    // ROOM DIALOG
+    // DIALOGS
     public static final String ROOM_DIALOG_FXML = "/View/Dialog/RoomDialog.fxml";
+    public static final String NEW_EMPLOYEE_DIALOG_FXML = "/View/Dialog/EmployeeDialog.fxml";
 
     /**
      * HIBERNATE

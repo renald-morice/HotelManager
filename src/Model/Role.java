@@ -34,5 +34,5 @@ public class Role {
 
     public void setAccessLevel(int accessLevel) { this.accessLevel = accessLevel; }
 
-    public String toString(){ return role; }
+    public String toString() { return role+" "+accessLevel; }
 }
