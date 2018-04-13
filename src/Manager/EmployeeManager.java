@@ -11,7 +11,7 @@ public class EmployeeManager extends Manager{
     public EmployeeManager(){ }
 
     public List<Employee> listAll(){
-        return (List<Employee>)(List<?>) super.sqlList("FROM Employee", null);
+        return (List<Employee>)(List<?>) super.sqlList("FROM Employee ORDER BY first_name, last_name", null);
     }
 
     public Employee exists(String username){

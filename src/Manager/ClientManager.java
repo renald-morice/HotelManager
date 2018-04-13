@@ -11,12 +11,12 @@ public class ClientManager extends Manager{
     public ClientManager(){ }
 
     public List<Client> listAll(){
-        return (List<Client>)(List<?>) super.sqlList("FROM Client", null);
+        return (List<Client>)(List<?>) super.sqlList("FROM Client ORDER BY first_name, last_name", null);
     }
 
     public Client exists(String firstName, String lastName, String phoneNumber){
 
-        String sql = "FROM Client WHERE firstName = :firstName AND lastName = :lastName AND phoneNumber = :phoneNumber";
+        String sql = "FROM Client WHERE first_name = :firstName AND last_name = :lastName AND phone_number = :phoneNumber";
 
         List<Pair<String, Object>> params = new ArrayList<>();
         params.add(new Pair<String, Object>("firstName", firstName));

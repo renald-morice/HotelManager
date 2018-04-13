@@ -12,7 +12,7 @@ public class RoleManager extends Manager{
     public RoleManager(){ }
 
     public List<Role> listAll(){
-        return (List<Role>)(List<?>) super.sqlList("FROM Role", null);
+        return (List<Role>)(List<?>) super.sqlList("FROM Role ORDER BY access_level", null);
     }
 
     public Role exists(String role){

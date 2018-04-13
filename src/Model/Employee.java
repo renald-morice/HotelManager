@@ -129,4 +129,6 @@ public class Employee extends RecursiveTreeObject<Employee> {
         this.reservations.add(reservation);
         reservation.setEmployee(this);
     }
+
+    public String toString() { return firstName + " " + lastName; }
 }

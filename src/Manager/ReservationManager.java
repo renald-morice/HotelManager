@@ -9,7 +9,7 @@ public class ReservationManager extends Manager{
     public ReservationManager(){ }
 
     public List<Reservation> listAll(){
-        return (List<Reservation>)(List<?>) super.sqlList("FROM Reservation", null);
+        return (List<Reservation>)(List<?>) super.sqlList("FROM Reservation ORDER BY start_date, end_date", null);
     }
 
 }

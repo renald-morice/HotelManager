@@ -81,4 +81,6 @@ public class Client {
         reservation.setClient(this);
     }
 
+    public String toString() { return firstName + " " + lastName; }
+
 }
