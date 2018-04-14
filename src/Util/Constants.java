@@ -5,6 +5,8 @@ public class Constants {
      * WINDOW
      */
     public static final String WINDOW_TITLE = "Hotel Manager";
+    public static final int MIN_WIDTH = 1200;
+    public static final int MIN_HEIGHT = 1000;
 
     /**
      * FXML RESOURCES
@@ -22,8 +24,6 @@ public class Constants {
     public static final int ACCESS_LEVEL_MIN = 3;
     // ACCOUNT
     public static final String ACCOUNT_FXML = "/View/FeaturesInterfaces/Account.fxml";
-    // NO PERMISSION
-    public static final String NO_ACCESS_FXML = "/View/FeaturesInterfaces/NoAccess.fxml";
     // DIALOGS
     public static final String ROOM_DIALOG_FXML = "/View/Dialog/RoomDialog.fxml";
     public static final String NEW_EMPLOYEE_DIALOG_FXML = "/View/Dialog/EmployeeDialog.fxml";

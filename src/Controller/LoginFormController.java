@@ -36,16 +36,15 @@ public class LoginFormController {
 
         if(employee == null || !employee.getPassword().equals(MD5Hashing.hash(passwordField.getText()))) badIDsText.setVisible(true);
         else {
+            Session.getInstance().setEmployee(employee);
+
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource(Constants.HOME_FXML));
-
             try {
                 loader.load();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            Session.getInstance().setEmployee(employee);
 
             Node source = (Node) event.getSource();
             Stage currentStage = (Stage) source.getScene().getWindow();
@@ -61,6 +60,8 @@ public class LoginFormController {
 
             Scene scene = new Scene(decorator,primaryScreenBounds.getWidth(),primaryScreenBounds.getHeight());
             scene.getStylesheets().add(getClass().getResource("/Resources/CSS/main.css").toExternalForm());
+            newStage.setMinWidth(Constants.MIN_WIDTH);
+            newStage.setMinHeight(Constants.MIN_HEIGHT);
             newStage.setScene(scene);
 
             currentStage.close();

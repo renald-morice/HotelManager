@@ -43,7 +43,7 @@
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton onAction="#handleExit" prefHeight="25.0" prefWidth="271.0" text="Quitter" textFill="WHITE">
+            <JFXButton alignment="CENTER" onAction="#handleExit" prefHeight="25.0" prefWidth="271.0" text="Quitter" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>

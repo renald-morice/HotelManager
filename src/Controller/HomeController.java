@@ -1,9 +1,8 @@
 package Controller;
 
-import Controller.Menu.AccountController;
 import Controller.Menu.MenuController;
-import Model.Employee;
 import Util.Constants;
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,35 +19,30 @@ public class HomeController implements Initializable {
     private StackPane contentStackPane;
     @FXML
     private ScrollPane contentScrollPane;
+    @FXML
+    private JFXButton employeesButton;
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) { }
-
-    @FXML
-    protected void handleRooms() {
-        loadContent(Constants.ROOMS_FXML);
+    public void initialize(URL location, ResourceBundle resources) {
+        if (Session.getInstance().getEmployee().getRole().getAccessLevel() < Constants.ACCESS_LEVEL_MIN) {
+            employeesButton.setManaged(false);
+        }
     }
 
     @FXML
-    protected void handleReservations() {
-        loadContent(Constants.RESERVATIONS_FXML);
-    }
+    protected void handleRooms() { loadContent(Constants.ROOMS_FXML); }
 
     @FXML
-    protected void handleEmployees() {
-        String ui;
-        if (Session.getInstance().getEmployee().getRole().getAccessLevel() >= Constants.ACCESS_LEVEL_MIN) ui = Constants.EMPLOYEES_FXML;
-        else ui = Constants.NO_ACCESS_FXML;
-        loadContent(ui);
-    }
+    protected void handleReservations() { loadContent(Constants.RESERVATIONS_FXML); }
+
+    @FXML
+    protected void handleEmployees() { loadContent(Constants.EMPLOYEES_FXML); }
 
     @FXML
     protected void handleMyAccount() { loadContent(Constants.ACCOUNT_FXML); }
 
     @FXML
-    protected void handleExit() {
-        System.exit(0);
-    }
+    protected void handleExit() { System.exit(0); }
 
     private void loadContent(String ui) {
         try {
