@@ -11,7 +11,7 @@
    <children>
       <VBox prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #30415d;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton onAction="#handleRooms" prefHeight="25.0" prefWidth="301.0" text="Chambres" textFill="WHITE">
+            <JFXButton fx:id="roomsButton" onAction="#handleRooms" prefHeight="25.0" prefWidth="301.0" text="Chambres" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
@@ -19,7 +19,7 @@
                   <Insets bottom="15.0" top="15.0" />
                </padding>
             </JFXButton>
-            <JFXButton onAction="#handleReservations" prefHeight="25.0" prefWidth="393.0" text="Réservations" textFill="WHITE">
+            <JFXButton fx:id="reservationsButton" onAction="#handleReservations" prefHeight="25.0" prefWidth="393.0" text="Réservations" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
@@ -35,7 +35,7 @@
                   <Insets bottom="15.0" top="15.0" />
                </padding>
             </JFXButton>
-            <JFXButton mnemonicParsing="false" onAction="#handleMyAccount" prefHeight="46.0" prefWidth="274.0" text="Mon compte" textFill="WHITE">
+            <JFXButton fx:id="accountButton" mnemonicParsing="false" onAction="#handleMyAccount" prefHeight="46.0" prefWidth="274.0" text="Mon compte" textFill="WHITE">
                <padding>
                   <Insets bottom="15.0" top="15.0" />
                </padding>
