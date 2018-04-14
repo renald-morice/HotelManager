@@ -26,9 +26,9 @@
             <JFXComboBox fx:id="clientComboBox" layoutX="374.0" layoutY="59.0" prefHeight="31.0" prefWidth="273.0" />
                 <Label fx:id="startDateLabel" layoutX="253.0" layoutY="135.0" text="Date de début" />
                 <Label fx:id="errorLabel" layoutX="238.0" layoutY="376.0" text="Label" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
-            <JFXDatePicker fx:id="startDatePicker" layoutX="374.0" layoutY="130.0" prefHeight="31.0" prefWidth="273.0" />
+            <JFXDatePicker fx:id="startDatePicker" defaultColor="#30415d" layoutX="374.0" layoutY="130.0" prefHeight="31.0" prefWidth="273.0" />
             <Label fx:id="endDateLabel" layoutX="258.0" layoutY="202.0" text="Date de fin" />
-            <JFXDatePicker fx:id="endDatePicker" layoutX="374.0" layoutY="197.0" prefHeight="31.0" prefWidth="273.0" />
+            <JFXDatePicker fx:id="endDatePicker" defaultColor="#30415d" layoutX="374.0" layoutY="197.0" prefHeight="31.0" prefWidth="273.0" />
             <Label fx:id="clientLabel" layoutX="282.0" layoutY="64.0" text="Client" />
             <JFXTreeTableView fx:id="roomsTreeTableView" layoutX="75.0" layoutY="270.0" prefHeight="287.0" prefWidth="800.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
             </children></AnchorPane>
