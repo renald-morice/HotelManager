@@ -23,12 +23,12 @@
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
          </padding>
       </JFXButton>
-      <Label layoutX="385.0" layoutY="52.0" text="Filtrer la liste des clients">
+      <Label layoutX="385.0" layoutY="53.0" text="Filtrer la liste des clients">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <JFXButton layoutX="465.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleFilterButtonAction" style="-fx-background-color: #30415D;" text="Filtrer" textFill="WHITE">
+      <JFXButton layoutX="514.0" layoutY="162.0" mnemonicParsing="false" onAction="#handleFilterButtonAction" style="-fx-background-color: #30415D;" text="Filtrer" textFill="WHITE" translateX="30.0">
          <padding>
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
          </padding>
@@ -37,5 +37,10 @@
       <JFXTextField fx:id="lastNameTextField" focusColor="#30415d" layoutX="335.0" layoutY="111.0" promptText="Nom" />
       <JFXTextField fx:id="phoneNumberTextField" focusColor="#30415d" layoutX="535.0" layoutY="111.0" promptText="Numéro de téléphone" />
       <JFXTextField fx:id="emailTextField" focusColor="#30415d" layoutX="736.0" layoutY="111.0" promptText="Email" />
+      <JFXButton layoutX="377.0" layoutY="162.0" mnemonicParsing="false" onAction="#handleReinitializeButtonAction" style="-fx-background-color: #30415D;" text="Reinitialiser" textFill="WHITE" translateX="-30.0">
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+         </padding>
+      </JFXButton>
    </children>
 </AnchorPane>

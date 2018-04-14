@@ -70,6 +70,14 @@ public class ClientsController extends MenuController implements Initializable {
         });
     }
 
+    @FXML
+    protected void handleReinitializeButtonAction() {
+        firstNameTextField.setText(null);
+        lastNameTextField.setText(null);
+        phoneNumberTextField.setText(null);
+        emailTextField.setText(null);
+        clientsTreeTable.setPredicate(row -> true);
+    }
 
     @FXML
     protected void handleFilterButtonAction() {

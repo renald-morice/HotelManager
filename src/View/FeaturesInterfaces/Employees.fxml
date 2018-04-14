@@ -33,11 +33,16 @@
       <JFXTextField fx:id="lastNameTextField" focusColor="#30415d" layoutX="295.0" layoutY="151.0" promptText="Nom" />
       <JFXTextField fx:id="salaryMaxTextField" focusColor="#30415d" layoutX="519.0" layoutY="151.0" promptText="Salaire Max" />
       <JFXTextField fx:id="salaryMinTextField" focusColor="#30415d" layoutX="519.0" layoutY="110.0" promptText="Salaire Min" />
-      <JFXButton layoutX="451.0" layoutY="206.0" mnemonicParsing="false" onAction="#handleFilterButtonAction" style="-fx-background-color: #30415D;" text="Filtrer" textFill="WHITE">
+      <JFXButton layoutX="504.0" layoutY="206.0" mnemonicParsing="false" onAction="#handleFilterButtonAction" style="-fx-background-color: #30415D;" text="Filtrer" textFill="WHITE" translateX="30.0">
          <padding>
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
          </padding>
       </JFXButton>
       <JFXComboBox fx:id="roleChoice" layoutX="743.0" layoutY="110.0" prefWidth="150.0" />
+      <JFXButton layoutX="362.0" layoutY="206.0" mnemonicParsing="false" onAction="#handleReinitializeButtonAction" style="-fx-background-color: #30415D;" text="Reinitialiser" textFill="WHITE" translateX="-30.0">
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+         </padding>
+      </JFXButton>
    </children>
 </AnchorPane>

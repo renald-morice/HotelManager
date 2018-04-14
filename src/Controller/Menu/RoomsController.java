@@ -66,18 +66,17 @@ public class RoomsController extends MenuController implements Initializable {
 
     }
 
-    public void addRoomToTable(Room room) {
-        rooms.add(room);
-        refreshTable();
-    }
-
-    public void refreshTable() {
-        roomsTreeTableView.refresh();
+    @FXML
+    protected void handleReinitializeButtonAction() {
+        numRoomTextField.setText(null);
+        minPriceTextField.setText(null);
+        maxPriceTextField.setText(null);
+        minNbGuestsTextField.setText(null);
+        roomsTreeTableView.setPredicate(row -> true);
     }
 
     @FXML
     protected void handleFilterButtonAction(ActionEvent event) {
-
         if(!checkInputs()) return;
 
         roomsTreeTableView.setPredicate(row ->
@@ -87,6 +86,16 @@ public class RoomsController extends MenuController implements Initializable {
                 && (minNbGuestsTextField.getText().equals("") || row.getValue().getNbGuest() >= Float.parseFloat(minNbGuestsTextField.getText()))
         );
     }
+
+    public void addRoomToTable(Room room) {
+        rooms.add(room);
+        refreshTable();
+    }
+
+    public void refreshTable() {
+        roomsTreeTableView.refresh();
+    }
+
 
     private boolean checkInputs(){
 

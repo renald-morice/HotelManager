@@ -21,7 +21,6 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -110,18 +109,18 @@ public class ReservationsController extends MenuController implements Initializa
 
     }
 
-    public void addReservationToTable(Reservation reservation) {
-        reservations.add(reservation);
-        refreshTable();
-    }
-
-    public void refreshTable() {
-        reservationsTreeTableView.refresh();
+    @FXML
+    protected void handleReinitializeButtonAction() {
+        reservationDatePicker.setValue(null);
+        startDatePicker.setValue(null);
+        endDatePicker.setValue(null);
+        employeeComboBox.setValue(null);
+        clientComboBox.setValue(null);
+        reservationsTreeTableView.setPredicate(row -> true);
     }
 
     @FXML
     protected void handleFilterButtonAction(ActionEvent event) {
-
         if(!checkInputs()) return;
 
         SimpleDateFormat df = new SimpleDateFormat("ddMMyyyy");
@@ -141,8 +140,18 @@ public class ReservationsController extends MenuController implements Initializa
                         Date.from(Instant.from(endDatePicker.getValue().atStartOfDay(ZoneId.systemDefault())))
                 )*/
         );
-
     }
+
+    public void addReservationToTable(Reservation reservation) {
+        reservations.add(reservation);
+        refreshTable();
+    }
+
+
+    public void refreshTable() {
+        reservationsTreeTableView.refresh();
+    }
+
 
     private boolean checkInputs(){
 

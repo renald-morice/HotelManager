@@ -84,6 +84,17 @@ public class EmployeesController extends MenuController implements Initializable
     }
 
     @FXML
+    protected void handleReinitializeButtonAction() {
+        usernameTextField.setText(null);
+        firstNameTextField.setText(null);
+        lastNameTextField.setText(null);
+        salaryMinTextField.setText(null);
+        salaryMaxTextField.setText(null);
+        roleChoice.setValue(null);
+        employeesTreeTable.setPredicate(row -> true);
+    }
+
+    @FXML
     protected void handleFilterButtonAction() {
         if(!checkInputs()) return;
 
