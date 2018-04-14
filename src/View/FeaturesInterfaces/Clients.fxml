@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="652.0" prefWidth="1014.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menu.ClientsController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="186.0" layoutX="63.0" layoutY="32.0" stroke="WHITE" strokeType="INSIDE" width="902.0" />
+      <JFXTreeTableView fx:id="clientsTreeTable" layoutX="63.0" layoutY="253.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="305.0" prefWidth="902.0" />
+      <JFXButton layoutX="64.0" layoutY="587.0" onAction="#addNewClient" style="-fx-background-color: #30415d;" text="Nouvel client" textAlignment="CENTER" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+         </padding>
+      </JFXButton>
+      <JFXButton fx:id="modifyClientButton" disable="true" layoutX="236.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleModifyClientButtonAction" style="-fx-background-color: #30415D;" text="Modifier" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+         </padding>
+      </JFXButton>
+      <Label layoutX="385.0" layoutY="52.0" text="Filtrer la liste des clients">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="465.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleFilterButtonAction" style="-fx-background-color: #30415D;" text="Filtrer" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+         </padding>
+      </JFXButton>
+      <JFXTextField fx:id="firstNameTextField" focusColor="#30415d" layoutX="137.0" layoutY="111.0" promptText="Prénom" />
+      <JFXTextField fx:id="lastNameTextField" focusColor="#30415d" layoutX="335.0" layoutY="111.0" promptText="Nom" />
+      <JFXTextField fx:id="phoneNumberTextField" focusColor="#30415d" layoutX="535.0" layoutY="111.0" promptText="Numéro de téléphone" />
+      <JFXTextField fx:id="emailTextField" focusColor="#30415d" layoutX="736.0" layoutY="111.0" promptText="Email" />
+   </children>
+</AnchorPane>

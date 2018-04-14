@@ -1,12 +1,14 @@
 package Model;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "Client")
-public class Client {
+public class Client extends RecursiveTreeObject<Client> {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)

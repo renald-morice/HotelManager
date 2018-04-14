@@ -111,13 +111,13 @@ public class EmployeeDialogController extends DialogController implements Initia
             return false;
         }
 
-        if (!firstNameTextField.getText().matches("[a-zA-Z]{2,}")) {
+        if (!firstNameTextField.getText().matches("[a-zA-ZÀ-ÿ]{2,}")) {
             firstNameTextField.getStyleClass().add("error-textfield");
             displayError("Le champ \"".concat(firstNameLabel.getText()).concat("\" doit contenir au moins 2 caractères !"));
             return false;
         }
 
-        if (!lastNameTextField.getText().matches("[a-zA-Z]{2,}")) {
+        if (!lastNameTextField.getText().matches("[a-zA-ZÀ-ÿ]{2,}")) {
             lastNameTextField.getStyleClass().add("error-textfield");
             displayError("Le champ \"".concat(lastNameLabel.getText()).concat("\" doit contenir au moins 2 caractères !"));
             return false;

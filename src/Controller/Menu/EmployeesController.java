@@ -134,11 +134,11 @@ public class EmployeesController extends MenuController implements Initializable
     }
 
     @FXML
-    protected void addNewEmployee() { loadDialog(Constants.NEW_EMPLOYEE_DIALOG_FXML,null); }
+    protected void addNewEmployee() { loadDialog(Constants.EMPLOYEE_DIALOG_FXML,null); }
 
     @FXML
     protected void handleModifyEmployeeButtonAction() {
-        loadDialog(Constants.NEW_EMPLOYEE_DIALOG_FXML, selectedEmployee);
+        loadDialog(Constants.EMPLOYEE_DIALOG_FXML, selectedEmployee);
     }
 
     public void addEmployeeToTable(Employee employee) {

@@ -20,7 +20,7 @@ public class HomeController implements Initializable {
     @FXML
     private ScrollPane contentScrollPane;
     @FXML
-    private JFXButton roomsButton,reservationsButton,employeesButton,accountButton;
+    private JFXButton roomsButton,reservationsButton,clientsButton,employeesButton,accountButton;
 
     private JFXButton currentButton;
 
@@ -34,25 +34,19 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    protected void handleRooms() {
-
-        loadContent(Constants.ROOMS_FXML,roomsButton);
-    }
+    protected void handleRooms() { loadContent(Constants.ROOMS_FXML,roomsButton); }
 
     @FXML
-    protected void handleReservations() {
-        loadContent(Constants.RESERVATIONS_FXML,reservationsButton);
-    }
+    protected void handleReservations() { loadContent(Constants.RESERVATIONS_FXML,reservationsButton); }
 
     @FXML
-    protected void handleEmployees() {
-        loadContent(Constants.EMPLOYEES_FXML,employeesButton);
-    }
+    protected void handleEmployees() { loadContent(Constants.EMPLOYEES_FXML,employeesButton); }
 
     @FXML
-    protected void handleMyAccount() {
-        loadContent(Constants.ACCOUNT_FXML,accountButton);
-    }
+    protected void handleMyAccount() { loadContent(Constants.ACCOUNT_FXML,accountButton); }
+
+    @FXML
+    protected void handleClients() { loadContent(Constants.CLIENTS_FXML,clientsButton); }
 
     @FXML
     protected void handleExit() { System.exit(0); }
