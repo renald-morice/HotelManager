@@ -71,4 +71,13 @@ public class Room extends RecursiveTreeObject<Room> {
         return true;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (o == this) return true;
+        if (!(o instanceof Room))return false;
+        if (this.id == ((Room) o).id) return true;
+        else return false;
+    }
+
 }

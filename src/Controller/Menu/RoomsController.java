@@ -46,7 +46,7 @@ public class RoomsController extends MenuController implements Initializable {
 
         numberColum.prefWidthProperty().bind(roomsTreeTableView.widthProperty().divide(3));
         priceColumn.prefWidthProperty().bind(roomsTreeTableView.widthProperty().divide(3));
-        nbGuestColumn.prefWidthProperty().bind(roomsTreeTableView.widthProperty().divide(3));
+        nbGuestColumn.prefWidthProperty().bind(roomsTreeTableView.widthProperty().divide(3.1));
 
         roomsTreeTableView.getColumns().setAll(numberColum, priceColumn, nbGuestColumn);
 
@@ -55,10 +55,6 @@ public class RoomsController extends MenuController implements Initializable {
 
         roomsTreeTableView.setRoot(root);
         roomsTreeTableView.setShowRoot(false);
-
-//        roomsTreeTableView.getSelectionModel().setSelectionMode(
-//                SelectionMode.MULTIPLE
-//        );
 
         roomsTreeTableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
@@ -89,11 +85,6 @@ public class RoomsController extends MenuController implements Initializable {
                 && (minPriceTextField.getText().equals("") || row.getValue().getPrice() >= Float.parseFloat(minPriceTextField.getText()))
                 && (maxPriceTextField.getText().equals("") || row.getValue().getPrice() <= Float.parseFloat(maxPriceTextField.getText()))
                 && (minNbGuestsTextField.getText().equals("") || row.getValue().getNbGuest() >= Float.parseFloat(minNbGuestsTextField.getText()))
-                /*&& (startDatePicker.getValue() == null || row.getValue().isAvailable(
-                        Date.from(Instant.from(startDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()))),
-                        Date.from(Instant.from(endDatePicker.getValue().atStartOfDay(ZoneId.systemDefault())))
-                    )
-                )*/
         );
     }
 

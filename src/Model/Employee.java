@@ -131,4 +131,13 @@ public class Employee extends RecursiveTreeObject<Employee> {
     }
 
     public String toString() { return firstName + " " + lastName; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (o == this) return true;
+        if (!(o instanceof Employee))return false;
+        if (this.id == ((Employee) o).id) return true;
+        else return false;
+    }
 }

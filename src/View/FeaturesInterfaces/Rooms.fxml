@@ -12,7 +12,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menu.RoomsController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="269.0" layoutX="53.0" layoutY="22.0" stroke="WHITE" strokeType="INSIDE" width="788.0" />
-      <Label layoutX="357.0" layoutY="48.0" text="Filtrer les réservations">
+      <Label layoutX="358.0" layoutY="50.0" text="Filtrer les chambres">
          <font>
             <Font size="21.0" />
          </font>

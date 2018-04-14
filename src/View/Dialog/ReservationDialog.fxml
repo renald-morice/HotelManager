@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<JFXDialogLayout fx:id="dialogLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Dialog.ReservationDialogController">
+    <children>
+        <AnchorPane prefHeight="400.0" prefWidth="517.0">
+            <children>
+                <JFXButton fx:id="actionButton" layoutX="458.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleActionButtonAction" style="-fx-background-color: #30415D;" text="Ajouter" textFill="WHITE" AnchorPane.rightAnchor="300.0">
+                    <padding>
+                        <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                    </padding>
+                </JFXButton>
+                <JFXButton layoutX="283.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleCancelButtonAction" style="-fx-background-color: #30415D;" text="Annuler" textFill="WHITE" AnchorPane.leftAnchor="300.0">
+                    <padding>
+                        <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                    </padding>
+                </JFXButton>
+            <JFXComboBox fx:id="clientComboBox" layoutX="374.0" layoutY="59.0" prefHeight="31.0" prefWidth="273.0" />
+                <Label fx:id="startDateLabel" layoutX="253.0" layoutY="135.0" text="Date de début" />
+                <Label fx:id="errorLabel" layoutX="238.0" layoutY="376.0" text="Label" textAlignment="CENTER" textFill="RED" visible="false" wrapText="true" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
+            <JFXDatePicker fx:id="startDatePicker" layoutX="374.0" layoutY="130.0" prefHeight="31.0" prefWidth="273.0" />
+            <Label fx:id="endDateLabel" layoutX="258.0" layoutY="202.0" text="Date de fin" />
+            <JFXDatePicker fx:id="endDatePicker" layoutX="374.0" layoutY="197.0" prefHeight="31.0" prefWidth="273.0" />
+            <Label fx:id="clientLabel" layoutX="282.0" layoutY="64.0" text="Client" />
+            <JFXTreeTableView fx:id="roomsTreeTableView" layoutX="75.0" layoutY="270.0" prefHeight="287.0" prefWidth="800.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+            </children></AnchorPane>
+    </children>
+</JFXDialogLayout>

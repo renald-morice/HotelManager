@@ -28,6 +28,7 @@ public class Constants {
     public static final String ROOM_DIALOG_FXML = "/View/Dialog/RoomDialog.fxml";
     public static final String NEW_EMPLOYEE_DIALOG_FXML = "/View/Dialog/EmployeeDialog.fxml";
     public static final String PASSWORD_DIALOG_FXML = "/View/Dialog/PasswordDialog.fxml";
+    public static final String RESERVATION_DIALOG_FXML = "/View/Dialog/ReservationDialog.fxml";
     // RESOURCES
     public static final String MAIN_CSS = "/Resources/CSS/main.css";
 

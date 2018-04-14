@@ -1,12 +1,14 @@
 package Model;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
 @Table(name = "Reservation")
-public class Reservation {
+public class Reservation extends RecursiveTreeObject<Reservation> {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -72,6 +74,15 @@ public class Reservation {
     public void addRoom(Room room) {
         this.rooms.add(room);
         room.getReservations().add(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (o == this) return true;
+        if (!(o instanceof Reservation))return false;
+        if (this.id == ((Reservation) o).id) return true;
+        else return false;
     }
 
 }

@@ -83,4 +83,13 @@ public class Client {
 
     public String toString() { return firstName + " " + lastName; }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (o == this) return true;
+        if (!(o instanceof Client))return false;
+        if (this.id == ((Client) o).id) return true;
+        else return false;
+    }
+
 }
