@@ -31,14 +31,31 @@ public abstract class Manager {
 
     public void update(Object o){
         Session session = Hibernate.sessionFactory.openSession();
-        Transaction tx = null;
+        Transaction transaction = null;
 
         try {
-            tx = session.beginTransaction();
+            transaction = session.beginTransaction();
             session.update(o);
-            tx.commit();
+            transaction.commit();
         } catch (HibernateException e) {
-            if (tx!=null) tx.rollback();
+            if (transaction!=null) transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    public void delete(Object o){
+        Session session = Hibernate.sessionFactory.openSession();
+        Transaction transaction = null;
+
+        try {
+            transaction = session.beginTransaction();
+            session.delete(o);
+            transaction.commit();
+
+        } catch (HibernateException e) {
+            if (transaction!=null) transaction.rollback();
             e.printStackTrace();
         } finally {
             session.close();

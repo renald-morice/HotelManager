@@ -31,6 +31,7 @@ public class Constants {
     public static final String EMPLOYEE_DIALOG_FXML = "/View/Dialog/EmployeeDialog.fxml";
     public static final String PASSWORD_DIALOG_FXML = "/View/Dialog/PasswordDialog.fxml";
     public static final String RESERVATION_DIALOG_FXML = "/View/Dialog/ReservationDialog.fxml";
+    public static final String DELETE_RESERVATION_DIALOG_FXML = "/View/Dialog/DeleteReservationDialog.fxml";
     public static final String CLIENT_DIALOG_FXML = "/View/Dialog/ClientDialog.fxml";
     // RESOURCES
     public static final String MAIN_CSS = "/Resources/CSS/main.css";

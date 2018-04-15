@@ -43,7 +43,7 @@ public class ReservationsController extends MenuController implements Initializa
     private JFXComboBox<Client> clientComboBox;
 
     @FXML
-    private JFXButton modifyReservationButton;
+    private JFXButton deleteReservationButton;
 
     private ObservableList<Reservation> reservations;
     private ReservationManager reservationManager = new ReservationManager();
@@ -102,9 +102,9 @@ public class ReservationsController extends MenuController implements Initializa
         reservationsTreeTableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 selectedReservation = reservationsTreeTableView.getSelectionModel().getSelectedItem().getValue();
-                modifyReservationButton.setDisable(false);
+                deleteReservationButton.setDisable(false);
             }
-            else modifyReservationButton.setDisable(true);
+            else deleteReservationButton.setDisable(true);
         });
 
     }
@@ -172,15 +172,20 @@ public class ReservationsController extends MenuController implements Initializa
         return true;
     }
 
-
     @FXML
     protected void handleNewReservationButtonAction() {
         loadDialog(Constants.RESERVATION_DIALOG_FXML, null);
     }
 
     @FXML
-    protected void handleModifyReservationButtonAction() {
-        loadDialog(Constants.RESERVATION_DIALOG_FXML, selectedReservation);
+    protected void handleDeleteReservationButtonAction() {
+        loadDialog(Constants.DELETE_RESERVATION_DIALOG_FXML, null);
+    }
+
+    public void deleteSelectedReservation(){
+        reservations.remove(selectedReservation);
+        refreshTable();
+        reservationManager.delete(selectedReservation);
     }
 
 }

@@ -1,6 +1,8 @@
 package Model;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -23,6 +25,10 @@ public class Room extends RecursiveTreeObject<Room> {
     private int nbGuest;
     @ManyToMany(mappedBy="rooms", fetch = FetchType.EAGER)
     private Set<Reservation> reservations;
+
+    //Only use when creating a reservation
+    @Transient
+    private final BooleanProperty selectedProperty = new SimpleBooleanProperty();
 
     public Room() {}
 
@@ -59,6 +65,18 @@ public class Room extends RecursiveTreeObject<Room> {
     public Set<Reservation> getReservations() { return reservations; }
 
     public void setReservations(Set<Reservation> reservations) { this.reservations = reservations; }
+
+    public BooleanProperty getSelectedProperty() {
+        return this.selectedProperty;
+    }
+
+    public final boolean getSelected() {
+        return this.selectedProperty.get();
+    }
+
+    public final void setselectedProperty(boolean active) {
+        this.selectedProperty.set(active);
+    }
 
     public boolean isAvailable(Date startDate, Date endDate){
         if(reservations != null){
