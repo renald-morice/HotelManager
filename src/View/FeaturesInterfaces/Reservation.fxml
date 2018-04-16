@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menu.ReservationsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Menu.ReservationsController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="269.0" layoutX="53.0" layoutY="22.0" stroke="WHITE" strokeType="INSIDE" width="812.0" />
       <JFXDatePicker fx:id="reservationDatePicker" defaultColor="#30415d" layoutX="343.0" layoutY="108.0" prefHeight="31.0" prefWidth="216.0" promptText="Date de réservation" />
@@ -45,5 +45,11 @@
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
          </padding>
       </JFXButton>
+      <JFXTreeTableView fx:id="roomsTreeTableView" layoutX="915.0" layoutY="308.0" prefHeight="305.0" prefWidth="600.0" />
+      <Label layoutX="1110.0" layoutY="260.0" text="Chambre(s) réservée(s)">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

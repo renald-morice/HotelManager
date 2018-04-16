@@ -29,7 +29,7 @@ public class Reservation extends RecursiveTreeObject<Reservation> {
     @ManyToOne
     @JoinColumn(name = "fk_client")
     private Client client;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "reservation_room",
             joinColumns = { @JoinColumn(name = "fk_reservation") },
             inverseJoinColumns = { @JoinColumn(name = "fk_room") })

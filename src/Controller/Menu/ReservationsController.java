@@ -6,6 +6,7 @@ import Manager.ReservationManager;
 import Model.Client;
 import Model.Employee;
 import Model.Reservation;
+import Model.Room;
 import Util.Constants;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -32,6 +33,8 @@ public class ReservationsController extends MenuController implements Initializa
 
     @FXML
     private JFXTreeTableView<Reservation> reservationsTreeTableView;
+    @FXML
+    private JFXTreeTableView<Room> roomsTreeTableView;
 
     @FXML
     private JFXDatePicker reservationDatePicker;
@@ -69,6 +72,9 @@ public class ReservationsController extends MenuController implements Initializa
 
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
+        /*------------------------*/
+        /* Reservation Table View */
+        /*------------------------*/
 
         JFXTreeTableColumn<Reservation, String> startDateColumColum = new JFXTreeTableColumn<>("Date de début");
         startDateColumColum.setCellValueFactory(param -> new SimpleStringProperty(df.format(param.getValue().getValue().getStartDate())));
@@ -109,10 +115,44 @@ public class ReservationsController extends MenuController implements Initializa
             if (newSelection != null) {
                 selectedReservation = reservationsTreeTableView.getSelectionModel().getSelectedItem().getValue();
                 deleteReservationButton.setDisable(false);
+                displayRoomsOfReservation();
             }
-            else deleteReservationButton.setDisable(true);
+            else{
+                selectedReservation = null;
+                deleteReservationButton.setDisable(true);
+                roomsTreeTableView.setRoot(null);
+            }
         });
 
+        /*---------------------------------*/
+        /* Rooms of reservation Table View */
+        /*---------------------------------*/
+
+        JFXTreeTableColumn<Room, String> numberColum = new JFXTreeTableColumn<>("Numéro");
+        numberColum.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getValue().getNumber())));
+
+        JFXTreeTableColumn<Room, String> priceColumn = new JFXTreeTableColumn<>("Prix");
+        priceColumn.setCellValueFactory(param -> new SimpleStringProperty(Float.toString(param.getValue().getValue().getPrice())));
+
+        JFXTreeTableColumn<Room, String> nbGuestColumn = new JFXTreeTableColumn<>("Places");
+        nbGuestColumn.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getValue().getNbGuest())));
+
+        numberColum.prefWidthProperty().bind(roomsTreeTableView.widthProperty().divide(3));
+        priceColumn.prefWidthProperty().bind(roomsTreeTableView.widthProperty().divide(3));
+        nbGuestColumn.prefWidthProperty().bind(roomsTreeTableView.widthProperty().divide(3.1));
+
+        roomsTreeTableView.getColumns().setAll(numberColum, priceColumn, nbGuestColumn);
+
+    }
+
+    /**
+     * Display all rooms of the selected reservation in the rooms table view
+     */
+    private void displayRoomsOfReservation(){
+        ObservableList<Room> rooms = FXCollections.observableArrayList(selectedReservation.getRooms());
+        final TreeItem<Room> root = new RecursiveTreeItem<>(rooms, RecursiveTreeObject::getChildren);
+        roomsTreeTableView.setRoot(root);
+        roomsTreeTableView.setShowRoot(false);
     }
 
     /**
@@ -210,9 +250,10 @@ public class ReservationsController extends MenuController implements Initializa
      * Delete selected reservation of the table view.
      */
     public void deleteSelectedReservation(){
+
+        reservationManager.delete(selectedReservation);
         reservations.remove(selectedReservation);
         refreshTable();
-        reservationManager.delete(selectedReservation);
     }
 
 }
