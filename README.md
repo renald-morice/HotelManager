@@ -15,7 +15,7 @@ Hotel Manager est une application Java permettant une gestion centralisée de l'
 
 ## Installation
 
-Il est préconisé de créer un projet depuis des sources existantes (lien git) avec un IDE car celui-ci va détecter tout seul les librairies nécessaires au fonctionnement de l'application du dossier **`lib/`**. 
+Il est préconisé de créer un projet depuis des sources existantes (directement avec le lien du repository GitHub ou avec le projet téléchargé en zip puis décompressé) avec un IDE car celui-ci va détecter tout seul les librairies nécessaires au fonctionnement de l'application du dossier **`lib/`**. 
 Vérifier que ces librairies sont bien liées au projet dans les options du projet.
 
 S'assurer que le serveur MySQL est bien lancé. Sinon le lancer.
