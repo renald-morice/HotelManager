@@ -27,6 +27,9 @@ import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+/**
+ * ReservationDialogController class. Used when the user wants to create a reservation.
+ */
 public class ReservationDialogController extends DialogController implements Initializable {
 
     @FXML
@@ -45,6 +48,11 @@ public class ReservationDialogController extends DialogController implements Ini
 
     private JFXTreeTableColumn<Room, Boolean> selectColumn;
 
+    /**
+     * Initialize all the data.
+     * @param location location
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -90,6 +98,9 @@ public class ReservationDialogController extends DialogController implements Ini
 
     }
 
+    /**
+     * Filter table view with all available rooms between the start date and end date
+     */
     private void filterRooms(){
 
         startDatePicker.getStyleClass().remove("error-textfield");
@@ -116,17 +127,27 @@ public class ReservationDialogController extends DialogController implements Ini
     }
 
 
+    /**
+     * Add new reservation
+     */
     @FXML
     protected void handleActionButtonAction() {
         if(!checkInputs()) return;
         addReservation();
     }
 
+    /**
+     * Close the dialog when the user clicks the cancel button.
+     */
     @FXML
     protected void handleCancelButtonAction() {
         dialog.close();
     }
 
+    /**
+     * Check if all the input are correctly filled.
+     * @return True if the inputs are correct, otherwise false.
+     */
     private boolean checkInputs(){
 
         clientComboBox.getStyleClass().remove("error-textfield");
@@ -171,6 +192,9 @@ public class ReservationDialogController extends DialogController implements Ini
         return true;
     }
 
+    /**
+     * Add a new reservation
+     */
     private void addReservation(){
 
         final Date startDate = Date.from(Instant.from(startDatePicker.getValue().atStartOfDay(ZoneId.systemDefault())));
@@ -201,6 +225,10 @@ public class ReservationDialogController extends DialogController implements Ini
     protected void initObjectToModify() {
     }
 
+    /**
+     * Displays error in a Label.
+     * @param error The error.
+     */
     private void displayError(String error){
         errorLabel.setText(error);
         errorLabel.setVisible(true);

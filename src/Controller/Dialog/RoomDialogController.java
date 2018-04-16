@@ -23,6 +23,9 @@ public class RoomDialogController extends DialogController {
     private RoomManager roomManager = new RoomManager();
 
 
+    /**
+     * Add/modify the room when the user clicks the add/modify button.
+     */
     @FXML
     protected void handleActionButtonAction() {
         if(!checkInputs()) return;
