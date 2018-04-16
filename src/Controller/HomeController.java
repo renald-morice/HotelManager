@@ -85,8 +85,8 @@ public class HomeController implements Initializable {
 
     /**
      * load specific UI in the right part of the application and modify the menu button
-     * @param ui
-     * @param button
+     * @param ui The ui
+     * @param button The button
      */
     private void loadContent(String ui,JFXButton button) {
         currentButton.setStyle("-fx-background-color: #30415d");

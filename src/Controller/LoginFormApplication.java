@@ -28,7 +28,7 @@ public class LoginFormApplication extends Application {
     /**
      * Starting point of the window.
      * @param primaryStage javaFX generated stage
-     * @throws Exception
+     * @throws Exception The exception
      */
     @Override
     public void start(Stage primaryStage) throws Exception  {
