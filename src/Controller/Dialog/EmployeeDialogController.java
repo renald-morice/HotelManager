@@ -14,9 +14,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * Employee dialog controller class. Used when we create or modify an employee.
+ */
 public class EmployeeDialogController extends DialogController implements Initializable {
     @FXML
     private JFXTextField usernameTextField,firstNameTextField,lastNameTextField,salaryTextField;
@@ -29,13 +31,20 @@ public class EmployeeDialogController extends DialogController implements Initia
 
     private EmployeeManager employeeManager = new EmployeeManager();
 
-
+    /**
+     * Initialize/populate the role combo box.
+     * @param location location
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         RoleManager roleManager = new RoleManager();
         roleChoice.getItems().addAll(roleManager.listAll());
     }
 
+    /**
+     * Add/modify the employee when the user clicks the add/modify button.
+     */
     @FXML
     protected void handleAddEmployeeButtonAction() {
         if(!checkInputs()) return;
@@ -43,6 +52,9 @@ public class EmployeeDialogController extends DialogController implements Initia
         else modifyEmployee();
     }
 
+    /**
+     * Add a new employee method.
+     */
     private void addEmployee(){
         Employee employee = new Employee(
                 usernameTextField.getText(),
@@ -61,6 +73,9 @@ public class EmployeeDialogController extends DialogController implements Initia
         }
     }
 
+    /**
+     * Initialize the TextFields of the dialog when we modify a client.
+     */
     @Override
     protected void initObjectToModify() {
         Employee employee = (Employee) objectToModify;
@@ -76,6 +91,9 @@ public class EmployeeDialogController extends DialogController implements Initia
         actionButton.setText("Modifier");
     }
 
+    /**
+     * Modify an employee.
+     */
     private void modifyEmployee() {
         Employee employeeToModify = (Employee) objectToModify;
         String usernameEmployee = usernameTextField.getText();
@@ -96,9 +114,16 @@ public class EmployeeDialogController extends DialogController implements Initia
         }
     }
 
+    /**
+     * Close the dialog when the user clicks the cancel button.
+     */
     @FXML
     protected void handleCancelButtonAction() { dialog.close(); }
 
+    /**
+     * Check if all the input TextFields are correctly filled.
+     * @return True if the inputs are correct, otherwise false.
+     */
     private boolean checkInputs(){
         usernameTextField.getStyleClass().remove("error-textfield");
         firstNameTextField.getStyleClass().remove("error-textfield");
@@ -141,6 +166,10 @@ public class EmployeeDialogController extends DialogController implements Initia
         return true;
     }
 
+    /**
+     * Displays error in a Label.
+     * @param error The error.
+     */
     private void displayError(String error){
         errorLabel.setText(error);
         errorLabel.setVisible(true);

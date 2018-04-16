@@ -10,7 +10,7 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 /**
- * Manager class. Contains all the methods used by the managers which extends this class.
+ * Manager class. Contains all the methods used by the managers which extend this class.
  */
 public abstract class Manager {
 

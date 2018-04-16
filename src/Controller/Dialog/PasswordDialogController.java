@@ -12,6 +12,9 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Password dialog controller class. Used when the user wants to change his password.
+ */
 public class PasswordDialogController extends DialogController implements Initializable {
     @FXML
     private Label oldPasswordLabel,newPasswordLabel,newPasswordLabel2,errorLabel;
@@ -25,9 +28,15 @@ public class PasswordDialogController extends DialogController implements Initia
     @Override
     protected void initObjectToModify() { }
 
+    /**
+     * Close the dialog when the user clicks the cancel button.
+     */
     @FXML
     private void handleCancelAction() { dialog.close(); }
 
+    /**
+     * Updates the user password when the user confirms.
+     */
     @FXML
     private void handleConfirmAction() {
         Employee employee = Session.getInstance().getEmployee();
@@ -39,6 +48,10 @@ public class PasswordDialogController extends DialogController implements Initia
         dialog.close();
     }
 
+    /**
+     * Check if all the input TextFields are correctly filled.
+     * @return True if the inputs are correct, otherwise false.
+     */
     private boolean checkInputs(Employee employee){
         oldPasswordField.getStyleClass().remove("error-textfield");
         newPasswordField.getStyleClass().remove("error-textfield");
@@ -71,6 +84,10 @@ public class PasswordDialogController extends DialogController implements Initia
         return true;
     }
 
+    /**
+     * Displays error in a Label.
+     * @param error The error.
+     */
     private void displayError(String error){
         errorLabel.setText(error);
         errorLabel.setVisible(true);

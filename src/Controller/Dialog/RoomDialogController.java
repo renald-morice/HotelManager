@@ -5,10 +5,12 @@ import Manager.RoomManager;
 import Model.Room;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+/**
+ * Room dialog controller class. Used when we create or modify a room.
+ */
 public class RoomDialogController extends DialogController {
 
     @FXML
@@ -29,11 +31,17 @@ public class RoomDialogController extends DialogController {
 
     }
 
+    /**
+     * Close the dialog when the user clicks the cancel button.
+     */
     @FXML
     protected void handleCancelButtonAction() {
         dialog.close();
     }
 
+    /**
+     * Add a new room method.
+     */
     private void addRoom(){
         Room room = new Room(
                 Integer.parseInt(numRoomTextField.getText()),
@@ -50,6 +58,9 @@ public class RoomDialogController extends DialogController {
 
     }
 
+    /**
+     * Modify a room.
+     */
     private void modifyRoom() {
         Room roomToModify = (Room) objectToModify;
         int numRoom = Integer.parseInt(numRoomTextField.getText());
@@ -68,6 +79,9 @@ public class RoomDialogController extends DialogController {
         }
     }
 
+    /**
+     * Initialize the TextFields of the dialog when we modify a client.
+     */
     @Override
     protected void initObjectToModify() {
         Room room = (Room) objectToModify;
@@ -79,6 +93,10 @@ public class RoomDialogController extends DialogController {
         actionButton.setText("Modifier");
     }
 
+    /**
+     * Check if all the input TextFields are correctly filled.
+     * @return True if the inputs are correct, otherwise false.
+     */
     private boolean checkInputs(){
         numRoomTextField.getStyleClass().remove("error-textfield");
         priceTextField.getStyleClass().remove("error-textfield");
@@ -112,6 +130,10 @@ public class RoomDialogController extends DialogController {
         return true;
     }
 
+    /**
+     * Displays error in a Label.
+     * @param error The error.
+     */
     private void displayError(String error){
         errorLabel.setText(error);
         errorLabel.setVisible(true);

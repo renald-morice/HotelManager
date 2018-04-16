@@ -1,7 +1,6 @@
 package Controller.Dialog;
 
 import Controller.Menu.ClientsController;
-import Controller.Menu.EmployeesController;
 import Manager.ClientManager;
 import Model.Client;
 import com.jfoenix.controls.JFXButton;
@@ -12,8 +11,10 @@ import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.regex.Pattern;
 
+/**
+ * Client dialog controller class. Used when we create or modify a client.
+ */
 public class ClientDialogController extends DialogController implements Initializable {
     @FXML
     private JFXTextField firstNameTextField,lastNameTextField,phoneNumberTextField,emailTextField;
@@ -27,10 +28,11 @@ public class ClientDialogController extends DialogController implements Initiali
     private ClientManager clientManager = new ClientManager();
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) { }
 
-    }
-
+    /**
+     * Initialize the TextFields of the dialog when we modify a client.
+     */
     @Override
     protected void initObjectToModify() {
         Client client = (Client) objectToModify;
@@ -43,6 +45,9 @@ public class ClientDialogController extends DialogController implements Initiali
         actionButton.setText("Modifier");
     }
 
+    /**
+     * Add/modify the client when the user clicks the add/modify button.
+     */
     @FXML
     protected void handleAddClientButtonAction() {
         if(!checkInputs()) return;
@@ -50,6 +55,9 @@ public class ClientDialogController extends DialogController implements Initiali
         else modifyClient();
     }
 
+    /**
+     * Add a new client method.
+     */
     private void addClient(){
         Client client = new Client(
                 firstNameTextField.getText(),
@@ -68,9 +76,15 @@ public class ClientDialogController extends DialogController implements Initiali
         }
     }
 
+    /**
+     * Close the dialog when the user clicks the cancel button.
+     */
     @FXML
     protected void handleCancelButtonAction() { dialog.close(); }
 
+    /**
+     * Modify a client.
+     */
     private void modifyClient() {
         Client clientToModify = (Client) objectToModify;
         String firstNameClient = firstNameTextField.getText();
@@ -95,6 +109,10 @@ public class ClientDialogController extends DialogController implements Initiali
         }
     }
 
+    /**
+     * Check if all the input TextFields are correctly filled.
+     * @return True if the inputs are correct, otherwise false.
+     */
     private boolean checkInputs(){
         firstNameTextField.getStyleClass().remove("error-textfield");
         lastNameTextField.getStyleClass().remove("error-textfield");
@@ -129,6 +147,10 @@ public class ClientDialogController extends DialogController implements Initiali
         return true;
     }
 
+    /**
+     * Displays error in a Label.
+     * @param error The error.
+     */
     private void displayError(String error){
         errorLabel.setText(error);
         errorLabel.setVisible(true);
