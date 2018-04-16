@@ -1,5 +1,6 @@
 package Controller;
 
+import Manager.EmployeeManager;
 import Util.Constants;
 import Util.DataSet;
 import Util.Hibernate;
@@ -34,7 +35,9 @@ public class LoginFormApplication extends Application {
     public void start(Stage primaryStage) throws Exception  {
         //Hibernate initialization
         Hibernate.init();
-        //DataSet.data();
+        //Load initial data at the first execution
+        if ((new EmployeeManager().listAll()).size() == 0) DataSet.data();
+
         Parent root = FXMLLoader.load(getClass().getResource(Constants.LOGIN_FXML));
         window = primaryStage;
         JFXDecorator decorator = new JFXDecorator(window,root,false,false,false);
