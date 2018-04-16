@@ -3,8 +3,16 @@ package Util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ *  MD5 hasher class.
+ */
 public class MD5Hashing {
 
+    /**
+     * Hash a String with MD5 algorithm.
+     * @param str The string to hash.
+     * @return The hashed string.
+     */
     static public String hash(String str) {
 
         MessageDigest md = null;

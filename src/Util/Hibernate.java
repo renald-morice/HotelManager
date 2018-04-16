@@ -1,15 +1,20 @@
 package Util;
 
 import Model.*;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+/**
+ *  Hibernate class.
+ */
 public class Hibernate {
 
     public static SessionFactory sessionFactory;
     private static boolean isInitialized = false;
 
+    /**
+     * Initialize Hibernate ORM.
+     */
     public static void init(){
 
         if(!isInitialized){

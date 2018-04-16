@@ -1,5 +1,8 @@
 package Util;
 
+/**
+ * Class containing all the project constants.
+ */
 public class Constants {
     /**
      * WINDOW

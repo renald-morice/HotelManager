@@ -9,9 +9,15 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * DataSet class.
+ */
 public class DataSet {
 
-
+    /**
+     * Load a default dataset to the database.
+     * @throws ParseException Any exception
+     */
     public static void data() throws ParseException {
 
         //------------------
