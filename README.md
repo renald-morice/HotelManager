@@ -15,10 +15,14 @@ Hotel Manager est une application Java permettant une gestion centralisée de l'
 
 ## Pré-requis
 
+S'assurer que le serveur MySQL est bien lancé. Sinon le lancer.
+
 Ouvrir le fichier **`src/hibernate.cfg.xml`** et y renseigner un utilisateur (qui aura les droits sur la base de données HotelManager) et son mot de passe.
 
 ```
 <property name="hibernate.connection.username"><!-- user --></property>
 <property name="hibernate.connection.password"><!-- your_password --></property>
 ```
+
+Compiler puis exécuter.
 
