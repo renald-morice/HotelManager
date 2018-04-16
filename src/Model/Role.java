@@ -78,7 +78,6 @@ public class Role {
         if (o == null) return false;
         if (o == this) return true;
         if (!(o instanceof Role))return false;
-        if (this.id == ((Role) o).id) return true;
-        else return false;
+        return this.id == ((Role) o).id;
     }
 }

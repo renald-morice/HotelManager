@@ -173,8 +173,7 @@ public class Room extends RecursiveTreeObject<Room> {
         if (o == null) return false;
         if (o == this) return true;
         if (!(o instanceof Room))return false;
-        if (this.id == ((Room) o).id) return true;
-        else return false;
+        return this.id == ((Room) o).id;
     }
 
 }

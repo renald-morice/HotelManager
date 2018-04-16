@@ -17,6 +17,9 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * EmployeesController class. Handle employee page interactions.
+ */
 public class EmployeesController extends MenuController implements Initializable {
     @FXML
     private JFXTreeTableView<Employee> employeesTreeTable;
@@ -34,6 +37,11 @@ public class EmployeesController extends MenuController implements Initializable
     private ObservableList<Employee> employees;
     private Employee selectedEmployee;
 
+    /**
+     * Initialize all the data.
+     * @param location location
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         JFXTreeTableColumn<Employee, String> idColumn = new JFXTreeTableColumn<>("ID");
@@ -83,6 +91,9 @@ public class EmployeesController extends MenuController implements Initializable
         roleChoice.getItems().addAll(roleManager.listAll());
     }
 
+    /**
+     * Handle reinitialize button.
+     */
     @FXML
     protected void handleReinitializeButtonAction() {
         usernameTextField.setText(null);
@@ -94,6 +105,9 @@ public class EmployeesController extends MenuController implements Initializable
         employeesTreeTable.setPredicate(row -> true);
     }
 
+    /**
+     * Handle the filter button of the form.
+     */
     @FXML
     protected void handleFilterButtonAction() {
         if(!checkInputs()) return;
@@ -108,6 +122,10 @@ public class EmployeesController extends MenuController implements Initializable
         );
     }
 
+    /**
+     * Check all form inputs.
+     * @return true if all inputs are correct, else false
+     */
     private boolean checkInputs(){
 
         usernameTextField.getStyleClass().remove("error-textfield");
@@ -144,18 +162,31 @@ public class EmployeesController extends MenuController implements Initializable
         return true;
     }
 
+    /**
+     * Handle the new employee button.
+     */
     @FXML
     protected void addNewEmployee() { loadDialog(Constants.EMPLOYEE_DIALOG_FXML,null); }
 
+    /**
+     * Handle the modify employee button.
+     */
     @FXML
     protected void handleModifyEmployeeButtonAction() {
         loadDialog(Constants.EMPLOYEE_DIALOG_FXML, selectedEmployee);
     }
 
+    /**
+     * Add one employee to the table.
+     * @param employee employee
+     */
     public void addEmployeeToTable(Employee employee) {
         employees.add(employee);
         refreshTable();
     }
 
+    /**
+     * Refresh table view
+     */
     public void refreshTable() { employeesTreeTable.refresh(); }
 }

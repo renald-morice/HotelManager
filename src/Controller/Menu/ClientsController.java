@@ -15,6 +15,9 @@ import javafx.scene.control.TreeItem;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * ClientsController class. Handle client page interactions.
+ */
 public class ClientsController extends MenuController implements Initializable {
     @FXML
     private JFXTreeTableView<Client> clientsTreeTable;
@@ -29,6 +32,11 @@ public class ClientsController extends MenuController implements Initializable {
     private ObservableList<Client> clients;
     private Client selectedClient;
 
+    /**
+     * Initialize all the data.
+     * @param location location
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         JFXTreeTableColumn<Client, String> idColumn = new JFXTreeTableColumn<>("ID");
@@ -70,6 +78,9 @@ public class ClientsController extends MenuController implements Initializable {
         });
     }
 
+    /**
+     * Handle reinitialize button.
+     */
     @FXML
     protected void handleReinitializeButtonAction() {
         firstNameTextField.setText(null);
@@ -79,6 +90,9 @@ public class ClientsController extends MenuController implements Initializable {
         clientsTreeTable.setPredicate(row -> true);
     }
 
+    /**
+     * Handle the filter button of the form.
+     */
     @FXML
     protected void handleFilterButtonAction() {
         if(!checkInputs()) return;
@@ -91,6 +105,10 @@ public class ClientsController extends MenuController implements Initializable {
         );
     }
 
+    /**
+     * Check all form inputs.
+     * @return true if all inputs are correct, else false
+     */
     private boolean checkInputs(){
         firstNameTextField.getStyleClass().remove("error-textfield");
         lastNameTextField.getStyleClass().remove("error-textfield");
@@ -100,19 +118,32 @@ public class ClientsController extends MenuController implements Initializable {
         return true;
     }
 
+    /**
+     * Handle the new client button.
+     */
     @FXML
     protected void addNewClient() { loadDialog(Constants.CLIENT_DIALOG_FXML,null); }
 
+    /**
+     * Handle the modify client button.
+     */
     @FXML
     protected void handleModifyClientButtonAction() {
         loadDialog(Constants.CLIENT_DIALOG_FXML, selectedClient);
     }
 
+    /**
+     * Add one client to the table.
+     * @param client client
+     */
     public void addClientToTable(Client client) {
         clients.add(client);
         refreshTable();
     }
 
+    /**
+     * Refresh table view
+     */
     public void refreshTable() { clientsTreeTable.refresh(); }
 
 }

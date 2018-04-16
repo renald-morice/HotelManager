@@ -25,7 +25,9 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-
+/**
+ * ReservationsController class. Handle reservation page interactions.
+ */
 public class ReservationsController extends MenuController implements Initializable{
 
     @FXML
@@ -52,7 +54,11 @@ public class ReservationsController extends MenuController implements Initializa
 
     private Reservation selectedReservation;
 
-
+    /**
+     * Initialize all the data.
+     * @param location location
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -109,6 +115,9 @@ public class ReservationsController extends MenuController implements Initializa
 
     }
 
+    /**
+     * Handle reinitialize button.
+     */
     @FXML
     protected void handleReinitializeButtonAction() {
         reservationDatePicker.setValue(null);
@@ -119,6 +128,10 @@ public class ReservationsController extends MenuController implements Initializa
         reservationsTreeTableView.setPredicate(row -> true);
     }
 
+    /**
+     * Handle the filter button of the form.
+     * @param event filter button event
+     */
     @FXML
     protected void handleFilterButtonAction(ActionEvent event) {
         if(!checkInputs()) return;
@@ -135,24 +148,29 @@ public class ReservationsController extends MenuController implements Initializa
                 && (filterEndDate == null || row.getValue().getEndDate().compareTo(filterEndDate) <= 0)
                 && (employeeComboBox.getValue() == null || row.getValue().getEmployee().equals(employeeComboBox.getValue()))
                 && (clientComboBox.getValue() == null || row.getValue().getClient().equals(clientComboBox.getValue()))
-                /*&& startDatePicker.getValue() == null || row.getValue().isAvailable(
-                        Date.from(Instant.from(startDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()))),
-                        Date.from(Instant.from(endDatePicker.getValue().atStartOfDay(ZoneId.systemDefault())))
-                )*/
         );
     }
 
+    /**
+     * Add one reservation to the table.
+     * @param reservation new reservation
+     */
     public void addReservationToTable(Reservation reservation) {
         reservations.add(reservation);
         refreshTable();
     }
 
-
+    /**
+     * Refresh table view
+     */
     public void refreshTable() {
         reservationsTreeTableView.refresh();
     }
 
-
+    /**
+     * Check all form inputs.
+     * @return true if all inputs are correct, else false
+     */
     private boolean checkInputs(){
 
         startDatePicker.getStyleClass().remove("error-textfield");
@@ -172,16 +190,25 @@ public class ReservationsController extends MenuController implements Initializa
         return true;
     }
 
+    /**
+     * Handle the new reservation button.
+     */
     @FXML
     protected void handleNewReservationButtonAction() {
         loadDialog(Constants.RESERVATION_DIALOG_FXML, null);
     }
 
+    /**
+     * Handle the delete room button.
+     */
     @FXML
     protected void handleDeleteReservationButtonAction() {
         loadDialog(Constants.DELETE_RESERVATION_DIALOG_FXML, null);
     }
 
+    /**
+     * Delete selected reservation of the table view.
+     */
     public void deleteSelectedReservation(){
         reservations.remove(selectedReservation);
         refreshTable();
