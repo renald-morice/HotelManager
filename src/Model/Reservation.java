@@ -158,8 +158,7 @@ public class Reservation extends RecursiveTreeObject<Reservation> {
         if (o == null) return false;
         if (o == this) return true;
         if (!(o instanceof Reservation))return false;
-        if (this.id == ((Reservation) o).id) return true;
-        else return false;
+        return this.id == ((Reservation) o).id;
     }
 
 }

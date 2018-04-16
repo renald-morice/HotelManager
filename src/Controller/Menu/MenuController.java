@@ -8,14 +8,26 @@ import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 
+/**
+ * MenuController abstract class.
+ */
 public abstract class MenuController {
 
     protected StackPane contentStackPane;
 
+    /**
+     * Set the stackPane
+     * @param stackPane content stackPane
+     */
     public void setContentStackPane(StackPane stackPane) {
         this.contentStackPane = stackPane;
     }
 
+    /**
+     * Load dialog form to create or modify an object
+     * @param fxmlFile FXML dialog UI file
+     * @param objectToModify object to modify
+     */
     protected void loadDialog(String fxmlFile, Object objectToModify){
 
         try {

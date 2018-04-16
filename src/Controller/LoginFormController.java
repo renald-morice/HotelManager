@@ -20,6 +20,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * LoginFormController class. Handle LoginForm interactions
+ */
 public class LoginFormController {
     @FXML
     private JFXTextField usernameTextField;
@@ -28,6 +31,11 @@ public class LoginFormController {
     @FXML
     private Label badIDsText;
 
+    /**
+     * Handle the click of the submit button.
+     * Access to the Home part of the application if the employee successfully logged in.
+     * @param event submit button click
+     */
     @FXML
     protected void handleSubmitButtonAction(ActionEvent event) {
 

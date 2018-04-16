@@ -230,7 +230,6 @@ public class Employee extends RecursiveTreeObject<Employee> {
         if (o == null) return false;
         if (o == this) return true;
         if (!(o instanceof Employee))return false;
-        if (this.id == ((Employee) o).id) return true;
-        else return false;
+        return this.id == ((Employee) o).id;
     }
 }

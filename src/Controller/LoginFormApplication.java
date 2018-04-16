@@ -10,14 +10,26 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * LoginFormApplication class. Handle login window.
+ */
 public class LoginFormApplication extends Application {
 
     private Stage window;
 
+    /**
+     * Starting point of the application
+     * @param args string params
+     */
     public static void main(String[] args){
         launch(args);
     }
 
+    /**
+     * Starting point of the window.
+     * @param primaryStage javaFX generated stage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception  {
         //Hibernate initialization

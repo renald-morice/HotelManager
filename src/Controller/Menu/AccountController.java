@@ -10,10 +10,18 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * AccountController class. Handle account page interactions.
+ */
 public class AccountController extends MenuController implements Initializable {
     @FXML
     private Label firstNameLabel,lastNameLabel,roleLabel,usernameLabel;
 
+    /**
+     * Initialize all the data.
+     * @param location location
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Employee employee = Session.getInstance().getEmployee();
@@ -24,6 +32,9 @@ public class AccountController extends MenuController implements Initializable {
         usernameLabel.setText(usernameLabel.getText()+employee.getUsername());
     }
 
+    /**
+     * Handle the modify password button.
+     */
     @FXML
     private void handleModifyPassword() { loadDialog(Constants.PASSWORD_DIALOG_FXML, null); }
 }

@@ -16,6 +16,9 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * RoomsController class. Handle room page interactions.
+ */
 public class RoomsController extends MenuController implements Initializable {
 
     @FXML
@@ -32,6 +35,11 @@ public class RoomsController extends MenuController implements Initializable {
 
     private Room selectedRoom;
 
+    /**
+     * Initialize all the data.
+     * @param location location
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -66,6 +74,9 @@ public class RoomsController extends MenuController implements Initializable {
 
     }
 
+    /**
+     * Handle reinitialize button.
+     */
     @FXML
     protected void handleReinitializeButtonAction() {
         numRoomTextField.setText(null);
@@ -75,6 +86,10 @@ public class RoomsController extends MenuController implements Initializable {
         roomsTreeTableView.setPredicate(row -> true);
     }
 
+    /**
+     * Handle the filter button of the form.
+     * @param event filter button event
+     */
     @FXML
     protected void handleFilterButtonAction(ActionEvent event) {
         if(!checkInputs()) return;
@@ -87,16 +102,26 @@ public class RoomsController extends MenuController implements Initializable {
         );
     }
 
+    /**
+     * Add one room to the table.
+     * @param room new room
+     */
     public void addRoomToTable(Room room) {
         rooms.add(room);
         refreshTable();
     }
 
+    /**
+     * Refresh table view.
+     */
     public void refreshTable() {
         roomsTreeTableView.refresh();
     }
 
-
+    /**
+     * Check all form inputs.
+     * @return true if all inputs are correct, else false
+     */
     private boolean checkInputs(){
 
         numRoomTextField.getStyleClass().remove("error-textfield");
@@ -147,18 +172,20 @@ public class RoomsController extends MenuController implements Initializable {
             }
         }
 
-//        if(startDatePicker.getValue() == null && endDatePicker.getValue() != null) startDatePicker.setValue(endDatePicker.getValue());
-//        else if (startDatePicker.getValue() != null && endDatePicker.getValue() == null) endDatePicker.setValue(startDatePicker.getValue());
-
         return true;
     }
 
-
+    /**
+     * Handle the new room button.
+     */
     @FXML
     protected void handleNewRoomButtonAction() {
         loadDialog(Constants.ROOM_DIALOG_FXML, null);
     }
 
+    /**
+     * Handle the modify room button.
+     */
     @FXML
     protected void handleModifyRoomButtonAction() {
         loadDialog(Constants.ROOM_DIALOG_FXML, selectedRoom);

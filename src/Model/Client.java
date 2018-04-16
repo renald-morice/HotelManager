@@ -165,8 +165,7 @@ public class Client extends RecursiveTreeObject<Client> {
         if (o == null) return false;
         if (o == this) return true;
         if (!(o instanceof Client))return false;
-        if (this.id == ((Client) o).id) return true;
-        else return false;
+        return this.id == ((Client) o).id;
     }
 
 }

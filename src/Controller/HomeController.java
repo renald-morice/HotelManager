@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * HomeController class. Handle Home interactions
+ */
 public class HomeController implements Initializable {
     @FXML
     private StackPane contentStackPane;
@@ -24,6 +27,11 @@ public class HomeController implements Initializable {
 
     private JFXButton currentButton;
 
+    /**
+     * Initialize all the data
+     * @param location location
+     * @param resources resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (Session.getInstance().getEmployee().getRole().getAccessLevel() < Constants.ACCESS_LEVEL_MIN) {
@@ -33,24 +41,53 @@ public class HomeController implements Initializable {
         handleRooms();
     }
 
+    /**
+     * Handle the room menu button
+     * Load room UI
+     */
     @FXML
     protected void handleRooms() { loadContent(Constants.ROOMS_FXML,roomsButton); }
 
+    /**
+     * Handle the reservation menu button
+     * Load reservation UI
+     */
     @FXML
     protected void handleReservations() { loadContent(Constants.RESERVATIONS_FXML,reservationsButton); }
 
+    /**
+     * Handle the employee menu button
+     * Load employee UI
+     */
     @FXML
     protected void handleEmployees() { loadContent(Constants.EMPLOYEES_FXML,employeesButton); }
 
+    /**
+     * Handle the my account menu button
+     * Load my account UI
+     */
     @FXML
     protected void handleMyAccount() { loadContent(Constants.ACCOUNT_FXML,accountButton); }
 
+    /**
+     * Handle the client menu button
+     * Load client UI
+     */
     @FXML
     protected void handleClients() { loadContent(Constants.CLIENTS_FXML,clientsButton); }
 
+    /**
+     * Handle the exit menu button
+     * Exit application
+     */
     @FXML
     protected void handleExit() { System.exit(0); }
 
+    /**
+     * load specific UI in the right part of the application and modify the menu button
+     * @param ui
+     * @param button
+     */
     private void loadContent(String ui,JFXButton button) {
         currentButton.setStyle("-fx-background-color: #30415d");
         currentButton = button;
