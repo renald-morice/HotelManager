@@ -67,9 +67,11 @@ On peut accéder à l'application en s'y connectant avec l'un de ces comptes (id
 
 <b>Remarque :</b> Un employé avec un access level "1" (le réceptionniste ici) n'a pas accès au menu "Employés" destiné à la gestion des employés. Dans le menu "Chambres", il ne pourra pas créer ou modifier une chambre.
 
-## Installation
+## Utilisation du projet
 
-Il est préconisé de créer un projet depuis des sources existantes (directement avec le lien du repository GitHub ou avec le projet téléchargé en zip puis décompressé) avec un IDE car celui-ci va détecter tout seul les librairies nécessaires au fonctionnement de l'application du dossier **`lib/`**. 
+### Depuis le code source
+
+Il est préconisé de créer un projet depuis les sources existantes (directement avec le lien du repository GitHub ou avec le projet téléchargé en zip puis décompressé) avec un IDE car celui-ci va détecter les librairies nécessaires au fonctionnement de l'application du dossier **`lib/`**. 
 Vérifier que ces librairies sont bien liées au projet dans les options du projet.
 
 S'assurer que le serveur MySQL est bien lancé. Sinon le lancer.
