@@ -8,8 +8,8 @@ public class Constants {
      * WINDOW
      */
     public static final String WINDOW_TITLE = "Hotel Manager";
-    public static final int MIN_WIDTH = 1300;
-    public static final int MIN_HEIGHT = 850;
+    public static final int MIN_WIDTH = 1000;
+    public static final int MIN_HEIGHT = 500;
 
     /**
      * FXML RESOURCES
