@@ -16,9 +16,9 @@
       <JFXDatePicker fx:id="reservationDatePicker" defaultColor="#30415d" layoutX="343.0" layoutY="108.0" prefHeight="31.0" prefWidth="216.0" promptText="Date de réservation" />
       <JFXDatePicker fx:id="startDatePicker" defaultColor="#30415d" layoutX="85.0" layoutY="108.0" prefHeight="31.0" prefWidth="216.0" promptText="Date de début" />
       <JFXDatePicker fx:id="endDatePicker" defaultColor="#30415d" layoutX="85.0" layoutY="157.0" prefHeight="31.0" prefWidth="216.0" promptText="Date de fin" />
-      <Label layoutX="591.0" layoutY="113.0" text="Employé" />
-      <JFXComboBox fx:id="employeeComboBox" layoutX="688.0" layoutY="108.0" prefWidth="150.0" />
-      <JFXComboBox fx:id="clientComboBox" layoutX="688.0" layoutY="157.0" prefWidth="150.0" />
+      <Label layoutX="578.0" layoutY="162.0" text="Employé" />
+      <JFXComboBox fx:id="employeeComboBox" layoutX="674.0" layoutY="157.0" prefWidth="150.0" />
+      <JFXComboBox fx:id="clientComboBox" layoutX="674.0" layoutY="108.0" prefWidth="150.0" />
       <Label layoutX="358.0" layoutY="39.0" text="Filtrer les réservations">
          <font>
             <Font size="21.0" />
@@ -39,7 +39,7 @@
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
          </padding>
       </JFXButton>
-      <Label layoutX="601.0" layoutY="162.0" text="Client" />
+      <Label layoutX="587.0" layoutY="113.0" text="Client" />
       <JFXButton layoutX="324.0" layoutY="206.0" mnemonicParsing="false" onAction="#handleReinitializeButtonAction" style="-fx-background-color: #30415D;" text="Reinitialiser" textFill="WHITE" translateX="-30.0">
          <padding>
             <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />

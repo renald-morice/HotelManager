@@ -65,9 +65,7 @@ public class ReservationsController extends MenuController implements Initializa
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        employeeComboBox.getItems().add(null);
         employeeComboBox.getItems().addAll(employeeManager.listAll());
-        clientComboBox.getItems().add(null);
         clientComboBox.getItems().addAll(clientManager.listAll());
 
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -189,6 +187,7 @@ public class ReservationsController extends MenuController implements Initializa
                 && (employeeComboBox.getValue() == null || row.getValue().getEmployee().equals(employeeComboBox.getValue()))
                 && (clientComboBox.getValue() == null || row.getValue().getClient().equals(clientComboBox.getValue()))
         );
+
     }
 
     /**

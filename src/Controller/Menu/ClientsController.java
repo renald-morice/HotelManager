@@ -83,10 +83,10 @@ public class ClientsController extends MenuController implements Initializable {
      */
     @FXML
     protected void handleReinitializeButtonAction() {
-        firstNameTextField.setText(null);
-        lastNameTextField.setText(null);
-        phoneNumberTextField.setText(null);
-        emailTextField.setText(null);
+        firstNameTextField.setText("");
+        lastNameTextField.setText("");
+        phoneNumberTextField.setText("");
+        emailTextField.setText("");
         clientsTreeTable.setPredicate(row -> true);
     }
 
@@ -98,10 +98,10 @@ public class ClientsController extends MenuController implements Initializable {
         if(!checkInputs()) return;
 
         clientsTreeTable.setPredicate(row ->
-                (firstNameTextField.getText().equals("") || row.getValue().getFirstName().contains(firstNameTextField.getText()))
-                        && (lastNameTextField.getText().equals("") || row.getValue().getLastName().contains(lastNameTextField.getText()))
-                        && (phoneNumberTextField.getText().equals("") || row.getValue().getPhoneNumber().contains(phoneNumberTextField.getText()))
-                        && (emailTextField.getText().equals("") || row.getValue().getEmail().contains(emailTextField.getText()))
+                (firstNameTextField.getText().equals("") || row.getValue().getFirstName().toUpperCase().contains(firstNameTextField.getText().toUpperCase()))
+                        && (lastNameTextField.getText().equals("") || row.getValue().getLastName().toUpperCase().contains(lastNameTextField.getText().toUpperCase()))
+                        && (phoneNumberTextField.getText().equals("") || row.getValue().getPhoneNumber().toUpperCase().contains(phoneNumberTextField.getText().toUpperCase()))
+                        && (emailTextField.getText().equals("") || row.getValue().getEmail().toUpperCase().contains(emailTextField.getText().toUpperCase()))
         );
     }
 

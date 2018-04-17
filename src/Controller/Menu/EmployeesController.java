@@ -96,11 +96,11 @@ public class EmployeesController extends MenuController implements Initializable
      */
     @FXML
     protected void handleReinitializeButtonAction() {
-        usernameTextField.setText(null);
-        firstNameTextField.setText(null);
-        lastNameTextField.setText(null);
-        salaryMinTextField.setText(null);
-        salaryMaxTextField.setText(null);
+        usernameTextField.setText("");
+        firstNameTextField.setText("");
+        lastNameTextField.setText("");
+        salaryMinTextField.setText("");
+        salaryMaxTextField.setText("");
         roleChoice.setValue(null);
         employeesTreeTable.setPredicate(row -> true);
     }
@@ -113,9 +113,9 @@ public class EmployeesController extends MenuController implements Initializable
         if(!checkInputs()) return;
 
         employeesTreeTable.setPredicate(row ->
-            (usernameTextField.getText().equals("") || row.getValue().getUsername().contains(usernameTextField.getText()))
-                && (firstNameTextField.getText().equals("") || row.getValue().getFirstName().contains(firstNameTextField.getText()))
-                && (lastNameTextField.getText().equals("") || row.getValue().getLastName().contains(lastNameTextField.getText()))
+            (usernameTextField.getText().equals("") || row.getValue().getUsername().toUpperCase().contains(usernameTextField.getText().toUpperCase()))
+                && (firstNameTextField.getText().equals("") || row.getValue().getFirstName().toUpperCase().contains(firstNameTextField.getText().toUpperCase()))
+                && (lastNameTextField.getText().equals("") || row.getValue().getLastName().toUpperCase().contains(lastNameTextField.getText().toUpperCase()))
                 && (salaryMinTextField.getText().equals("") || row.getValue().getSalary() >= Double.parseDouble(salaryMinTextField.getText()))
                 && (salaryMaxTextField.getText().equals("") || row.getValue().getSalary() <= Double.parseDouble(salaryMaxTextField.getText()))
                 && (roleChoice.getValue() == null || row.getValue().getRole().equals(roleChoice.getValue()))

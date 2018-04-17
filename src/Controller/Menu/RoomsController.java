@@ -84,10 +84,10 @@ public class RoomsController extends MenuController implements Initializable {
      */
     @FXML
     protected void handleReinitializeButtonAction() {
-        numRoomTextField.setText(null);
-        minPriceTextField.setText(null);
-        maxPriceTextField.setText(null);
-        minNbGuestsTextField.setText(null);
+        numRoomTextField.setText("");
+        minPriceTextField.setText("");
+        maxPriceTextField.setText("");
+        minNbGuestsTextField.setText("");
         roomsTreeTableView.setPredicate(row -> true);
     }
 
