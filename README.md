@@ -39,13 +39,25 @@ Lors de la première utilisation de l'application, la classe "src\Util\DataSet.j
 
 Un rôle permet de catégoriser le poste occupé par un employé dans l'hôtel. L'access level est une donnée utilisée pour savoir si un employé a le droit d'accéder à certaines fonctionnalités ou non dans l'application. 3 rôles sont ajoutés par défaut :
 
-| Rôle  | Access Level |
-| ------------- | ------------- |
+| Rôle | Access Level |
+| ---- | ------------ |
 | Réceptionniste  | 1  |
 | Manager  | 2  |
 | Directeur  | 3  |
 
+### Employés créés par défaut
 
+Un compte employé pour chaque rôle est créé par défaut :
+
+| Identifiant | Prénom | Nom | Rôle |
+| ----------- | ------ | --- | ---- |
+| Max | Max | Parsons | Directeur |
+| Jennifer | Jennifer | Arnold | Manager |
+| Earnest | Earnest | Holmes | Réceptionniste |
+
+On peut accéder à l'application en s'y connectant avec l'un de ces comptes (identifiant + mot de passe qui est "test" par défaut).
+
+<b>Remarque :</b> Un employé avec un access level "1" (le réceptionniste ici) n'a pas accès au menu "Employés" destiné à la gestion des employés. Dans le menu "Chambres", il ne pourra pas créer ou modifier une chambre.
 
 ## Installation
 
