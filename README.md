@@ -41,7 +41,7 @@ La capture d'écran correspond à l'écran permettant de créer une nouvelle ré
 
 ## Données de base
 
-Lors de la première utilisation de l'application, la classe **`src\Util\DataSet.java"`** sera appelée par l'application pour remplir la base de données.
+Lors de la première utilisation de l'application, la classe **`src\Util\DataSet.java`** sera appelée par l'application pour remplir la base de données.
 
 ### Rôles disponible par défaut
 
