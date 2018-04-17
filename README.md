@@ -84,5 +84,9 @@ Ouvrir le fichier **`src/hibernate.cfg.xml`** et y renseigner un utilisateur (qu
 <property name="hibernate.connection.password"><!-- your_password --></property>
 ```
 
-Compiler puis exécuter.
+Compiler puis exécuter. Utiliser par exemple le compte "Max" avec le mot de passe "test" pour se connecter à l'application.
+
+### Depuis l'exécutable .jar
+
+Le fichier exécutable HotelManager.jar 
 
