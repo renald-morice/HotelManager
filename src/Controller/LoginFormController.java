@@ -7,6 +7,7 @@ import Util.MD5Hashing;
 import com.jfoenix.controls.JFXDecorator;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,7 +67,7 @@ public class LoginFormController {
 
             Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 
-            Scene scene = new Scene(decorator,primaryScreenBounds.getWidth(),primaryScreenBounds.getHeight());
+            Scene scene = new Scene(decorator,Constants.MIN_WIDTH, Constants.MIN_HEIGHT);
             scene.getStylesheets().add(getClass().getResource(Constants.MAIN_CSS).toExternalForm());
             newStage.setMinWidth(Constants.MIN_WIDTH);
             newStage.setMinHeight(Constants.MIN_HEIGHT);
