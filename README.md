@@ -11,6 +11,14 @@ Membres du groupe :
   
 Le mini-srs est présent à la racine de ce projet.
 
+## Objectif princpal
+
+Notre principal objectif pour ce projet était la découverte des 3 technologies suivantes :
+
+  * Hibernate (framework gérant la persistance des objets en base de données relationnelle)
+  * JavaFX (bibliothèque de création d'interface graphique)
+  * JavaFX Scene Builder (outil graphique de création d'interfaces au format .FXML exploitables par JavaFX)
+
 ## Qu'est-ce « HotelManager » ?
 
 Hotel Manager est une application Java permettant la gestion des réservations d'un hôtel. Elle permet de gérer :
