@@ -21,12 +21,15 @@ Hotel Manager est une application Java permettant la gestion des réservations d
   * les employés
   * le compte de l'employé connecté
   
-## Screenshot
+## Aperçu : page des réservations
 
-Voici deux screenshots de l'application :
+La capture d'écran ci-dessous correspond à l'écran permettant de visualiser/filtrer les réservations :
 
-![Reservations](/img-readme/reservation.png)
-![New reservation](/img-readme/newReservation.png)
+![Reservations](/img-readme/reservation.PNG)
+
+La capture d'écran correspond à l'écran permettant de créer une nouvelle réservation :
+
+![New reservation](/img-readme/newReservation.PNG)
 
 ## Installation
 
