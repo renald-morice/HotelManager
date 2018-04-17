@@ -31,6 +31,22 @@ La capture d'écran correspond à l'écran permettant de créer une nouvelle ré
 
 ![New reservation](/img-readme/newReservation.PNG)
 
+## Données de base
+
+Lors de la première utilisation de l'application, la classe "src\Util\DataSet.java" sera appelée par l'application pour remplir la base de données.
+
+### Rôles disponible par défaut
+
+Un rôle permet de catégoriser le poste occupé par un employé dans l'hôtel. L'access level est une donnée utilisée pour savoir si un employé a le droit d'accéder à certaines fonctionnalités ou non dans l'application. 3 rôles sont ajoutés par défaut :
+
+| Rôle  | Access Level |
+| ------------- | ------------- |
+| Réceptionniste  | 1  |
+| Manager  | 2  |
+| Directeur  | 3  |
+
+
+
 ## Installation
 
 Il est préconisé de créer un projet depuis des sources existantes (directement avec le lien du repository GitHub ou avec le projet téléchargé en zip puis décompressé) avec un IDE car celui-ci va détecter tout seul les librairies nécessaires au fonctionnement de l'application du dossier **`lib/`**. 
