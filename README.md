@@ -90,7 +90,7 @@ Compiler puis exécuter. Utiliser par exemple le compte "Max" avec le mot de pas
 
 Pour accéder à l'application, il est possible d'utiliser l'exécutable  **`jar/HotelManager.jar`** .
 
-<b>Remarque :</b> En utilisant cet exécutable, il ne sera pas possible de modifier le fichier de configuration "hibernate.cfg.xml' avec vos constantes. Il vous faudra :
+<b>Remarque :</b> En utilisant cet exécutable, il ne sera pas possible de modifier le fichier de configuration "hibernate.cfg.xml' avec vos constantes. C'est pourquoi il vous faudra :
 
   * créer une base de données nomée "HotelManager"
   * créer utilisateur avec les droits sur cette base de données (username : HotelManagerUser, mot de passe : test)
