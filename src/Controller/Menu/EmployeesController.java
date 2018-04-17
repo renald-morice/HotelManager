@@ -59,7 +59,7 @@ public class EmployeesController extends MenuController implements Initializable
         JFXTreeTableColumn<Employee, String> salaryColumn = new JFXTreeTableColumn<>("Salaire");
         salaryColumn.setCellValueFactory(param -> new SimpleStringProperty(Double.toString(param.getValue().getValue().getSalary())));
 
-        JFXTreeTableColumn<Employee, String> roleColumn = new JFXTreeTableColumn<>("Role");
+        JFXTreeTableColumn<Employee, String> roleColumn = new JFXTreeTableColumn<>("Rôle");
         roleColumn.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().getValue().getRole().getRole()));
 
         idColumn.prefWidthProperty().bind(employeesTreeTable.widthProperty().divide(6));

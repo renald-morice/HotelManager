@@ -26,9 +26,9 @@ public class DataSet {
 
         RoleManager roleManager = new RoleManager();
 
-        Role receptionistRole = new Role("receptionist", 1);
-        Role managerRole = new Role("manager", 2);
-        Role ceoRole = new Role("ceo", 3);
+        Role receptionistRole = new Role("Réceptionniste ", 1);
+        Role managerRole = new Role("Manager", 2);
+        Role ceoRole = new Role("Directeur", 3);
 
         roleManager.add(receptionistRole);
         roleManager.add(managerRole);
@@ -41,7 +41,7 @@ public class DataSet {
         EmployeeManager employeeManager = new EmployeeManager();
 
         Employee ceoEmp = new Employee(
-                "ceo",
+                "Max",
                 MD5Hashing.hash("test"),
                 "Max",
                 "Parsons",
@@ -50,7 +50,7 @@ public class DataSet {
         );
 
         Employee managerEmp = new Employee(
-                "manager",
+                "Jennifer",
                 MD5Hashing.hash("test"),
                 "Jennifer",
                 "Arnold",
@@ -59,7 +59,7 @@ public class DataSet {
         );
 
         Employee receptionistEmp = new Employee(
-                "receptionist",
+                "Earnest",
                 MD5Hashing.hash("test"),
                 "Earnest",
                 "Holmes",
