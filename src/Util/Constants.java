@@ -26,7 +26,7 @@ public class Constants {
     public static final String CLIENTS_FXML = "/View/FeaturesInterfaces/Clients.fxml";
     // EMPLOYEES
     public static final String EMPLOYEES_FXML = "/View/FeaturesInterfaces/Employees.fxml";
-    public static final int ACCESS_LEVEL_MIN = 3;
+    public static final int ACCESS_LEVEL_MIN = 2;
     // ACCOUNT
     public static final String ACCOUNT_FXML = "/View/FeaturesInterfaces/Account.fxml";
     // DIALOGS
