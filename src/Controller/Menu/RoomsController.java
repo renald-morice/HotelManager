@@ -1,5 +1,6 @@
 package Controller.Menu;
 
+import Controller.Session;
 import Manager.RoomManager;
 import Model.Room;
 import Util.Constants;
@@ -28,7 +29,7 @@ public class RoomsController extends MenuController implements Initializable {
     private JFXTextField numRoomTextField,minPriceTextField,maxPriceTextField,minNbGuestsTextField;
 
     @FXML
-    private JFXButton modifyRoomButton;
+    private JFXButton addRoomButton,modifyRoomButton;
 
     private ObservableList<Room> rooms;
     private RoomManager roomManager = new RoomManager();
@@ -42,6 +43,10 @@ public class RoomsController extends MenuController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        if (Session.getInstance().getEmployee().getRole().getAccessLevel() < Constants.ACCESS_LEVEL_MIN) {
+            modifyRoomButton.setManaged(false);
+            addRoomButton.setManaged(false);
+        }
 
         JFXTreeTableColumn<Room, String> numberColum = new JFXTreeTableColumn<>("Numéro");
         numberColum.setCellValueFactory(param -> new SimpleStringProperty(Integer.toString(param.getValue().getValue().getNumber())));
@@ -179,9 +184,7 @@ public class RoomsController extends MenuController implements Initializable {
      * Handle the new room button.
      */
     @FXML
-    protected void handleNewRoomButtonAction() {
-        loadDialog(Constants.ROOM_DIALOG_FXML, null);
-    }
+    protected void handleNewRoomButtonAction() { loadDialog(Constants.ROOM_DIALOG_FXML, null); }
 
     /**
      * Handle the modify room button.
