@@ -8,10 +8,25 @@ Membres du groupe :
 
   * Loïc Bothorel : BOTL27029508
   * Rénald Morice : MORR14029503
+  
+Le mini-srs est présent à la racine de ce projet.
 
 ## Qu'est-ce « HotelManager » ?
 
-Hotel Manager est une application Java permettant une gestion centralisée de l'activité d'un hôtel.
+Hotel Manager est une application Java permettant la gestion des réservations d'un hôtel. Elle permet de gérer :
+
+  * les chambres
+  * les réservations
+  * les clients
+  * les employés
+  * le compte de l'employé connecté
+  
+## Screenshot
+
+Voici deux screenshots de l'application :
+
+![Reservations](/img-readme/reservation.png)
+![New reservation](/img-readme/newReservation.png)
 
 ## Installation
 
